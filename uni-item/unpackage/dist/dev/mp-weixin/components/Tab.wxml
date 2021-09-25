@@ -1,0 +1,1 @@
+<view class="top-tab"><view class="tab-title"><block wx:for="{{tabList}}" wx:for-item="t" wx:for-index="i" wx:key="i"><view class="tab-title-item"><text class="{{[i===cIndex?'tab-active':'']}}">{{''+t+''}}</text></view></block></view></view>

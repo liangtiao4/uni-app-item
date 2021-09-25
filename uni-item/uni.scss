@@ -1,0 +1,125 @@
+/* 背景颜色 */
+$bg-color: #fff;
+$bg-color-grey: #f8f8f8; // 灰色
+$bg-color-commond: #ffaa00;
+/* 字体颜色 */
+$color-commond: #8f4b2e;
+$color-red: #ff4925;
+$color-orange: #ff8917;
+
+/* 边框颜色 */
+$b-color: #c8c7cc;
+
+/* 文字尺寸 */
+$font-size-sm: 24rpx;
+$font-size-normal: 30rpx;
+$font-size-lg: 36rpx;
+.fs-1{ font-size: 24rpx; }
+.fs-2{ font-size: 30rpx; }
+.fs-3{ font-size: 36rpx; }
+.text-price {
+	font-size: $font-size-normal;
+	color: $color-red;
+}
+.price-symbol {
+	font-size: $font-size-sm;
+}
+
+/* 常用flex组合 */
+@mixin row-center {
+	display: flex;
+	align-items: center;
+}
+@mixin column-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.flex-row {
+	display: flex;
+	justify-content: space-between;
+}
+.vertically-center {
+	display: flex;
+	align-items: center;
+}
+
+/* 百分比 */
+$ratio-100: 100%;
+$ratio-50: 50%;
+
+/* 间隔 */
+$spcing-ssm: 6rpx;
+$spcing-sm: 12rpx;
+$spcing-normal: 24rpx;
+$spcing-lg: 30rpx;
+.ml-2 { margin-left: 20rpx; }
+.mr-1 { margin-right: 10rpx; }
+.mr-2 { margin-right: 20rpx; }
+.mb-1 { margin-bottom: 10rpx; }
+.mb-2 { margin-bottom: 20rpx; }
+.wrap-p {
+	padding: $spcing-sm $spcing-lg;
+}
+
+/* 定位 */
+.fixed-b {
+	position: fixed;
+	bottom: 0;
+	width: calc(100% - 20px);
+	padding: $spcing-sm $spcing-normal;
+	background-color: $bg-color;
+	border-top: 1rpx solid $b-color;
+	box-shadow: 0 0 0 5rpx #eeedf1;
+	@include row-center;
+	justify-content: space-between;
+	font-size: $font-size-normal;
+}
+
+/* 按钮 */
+.btn {
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 40px;
+	padding: $spcing-ssm;
+	font-size: $font-size-normal;
+	color: #FFFFFF;
+}
+.btn-submit {
+	background-color: $color-red;
+}
+.btn-left {
+	border-radius: 40rpx 0 0 40rpx;
+	background-color: $color-orange;
+	padding-left: $spcing-normal;
+}
+.btn-right {
+	border-radius: 0 40rpx 40rpx 0;
+	background-color: $color-red;
+	padding-right: $spcing-normal;
+}
+
+/* 图片 */
+.img {
+	width: 180rpx;
+	height: 180rpx;
+	border-radius: 10rpx;
+	border: 1rpx solid $b-color;
+}
+.img-goods {
+	width: 100%;
+}
+.img-avatar-sm {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: $ratio-50;
+	border: 1rpx solid $b-color;
+}
+
