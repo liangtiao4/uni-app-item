@@ -19,6 +19,10 @@
 .price-symbol.data-v-7a668dbb {
   font-size: 24rpx;
 }
+.text-desc.data-v-7a668dbb {
+  font-size: 26rpx;
+  color: #838284;
+}
 /* 常用flex组合 */
 .flex-row.data-v-7a668dbb {
   display: -webkit-box;
@@ -109,6 +113,12 @@
 }
 .img-goods.data-v-7a668dbb {
   width: 100%;
+}
+.img-avatar-lg.data-v-7a668dbb {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #c8c7cc;
 }
 .img-avatar-sm.data-v-7a668dbb {
   width: 80rpx;

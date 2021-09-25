@@ -1,5 +1,6 @@
 {
-  "navigationBarTitleText": "uni-app",
+  "navigationBarTitleText": "我的",
+  "enablePullDownRefresh": false,
   "usingComponents": {
     "goods-card": "/components/GoodsCard"
   }

@@ -24,6 +24,10 @@ $font-size-lg: 36rpx;
 .price-symbol {
 	font-size: $font-size-sm;
 }
+.text-desc {
+	font-size: 26rpx;
+	color: #838284;
+}
 
 /* 常用flex组合 */
 @mixin row-center {
@@ -115,6 +119,12 @@ $spcing-lg: 30rpx;
 }
 .img-goods {
 	width: 100%;
+}
+.img-avatar-lg {
+	width: 140rpx;
+	height: 140rpx;
+	border-radius: 30rpx;
+	border: 1rpx solid $b-color;
 }
 .img-avatar-sm {
 	width: 80rpx;
