@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "usingComponents": {
+    "grid": "/components/Grid",
+    "cell": "/components/Cell"
+  }
+}

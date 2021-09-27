@@ -1,0 +1,186 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "iconfont";
+  /* Project id 2788829 */
+  src: url("//at.alicdn.com/t/font_2788829_vxen0klyph8.woff2?t=1632659927054") format("woff2"), url("//at.alicdn.com/t/font_2788829_vxen0klyph8.woff?t=1632659927054") format("woff"), url("//at.alicdn.com/t/font_2788829_vxen0klyph8.ttf?t=1632659927054") format("truetype"), url("//at.alicdn.com/t/font_2788829_vxen0klyph8.svg?t=1632659927054#iconfont") format("svg");
+}
+.iconfont.data-v-1760d603 {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-kefu.data-v-1760d603:before {
+  content: "\e6d7";
+}
+.icon-jiantou-you.data-v-1760d603:before {
+  content: "\e6c7";
+}
+.icon-xianzhi.data-v-1760d603:before {
+  content: "\e6f3";
+}
+.icon-shoucang.data-v-1760d603:before {
+  content: "\e72c";
+}
+.icon-aixin.data-v-1760d603:before {
+  content: "\e757";
+}
+.icon-daifahuo.data-v-1760d603:before {
+  content: "\e624";
+}
+.icon-daifukuan.data-v-1760d603:before {
+  content: "\e625";
+}
+.icon-daishouhuo.data-v-1760d603:before {
+  content: "\e626";
+}
+.icon-yonghu.data-v-1760d603:before {
+  content: "\e639";
+}
+/* 背景颜色 */
+/* 字体颜色 */
+/* 边框颜色 */
+/* 文字尺寸 */
+.fs-1.data-v-1760d603 {
+  font-size: 24rpx;
+}
+.fs-2.data-v-1760d603 {
+  font-size: 30rpx;
+}
+.fs-3.data-v-1760d603 {
+  font-size: 36rpx;
+}
+.text-price.data-v-1760d603 {
+  font-size: 30rpx;
+  color: #ff4925;
+}
+.price-symbol.data-v-1760d603 {
+  font-size: 24rpx;
+}
+.text-desc.data-v-1760d603 {
+  font-size: 26rpx;
+  color: #838284;
+}
+.text-title.data-v-1760d603 {
+  display: block;
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 600;
+  padding: 10rpx 30rpx;
+}
+.i-size.data-v-1760d603 {
+  font-size: 54rpx;
+}
+/* 常用flex组合 */
+.flex-row.data-v-1760d603 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.vertically-center.data-v-1760d603 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+/* 百分比 */
+/* 间隔 */
+.ml-2.data-v-1760d603 {
+  margin-left: 20rpx;
+}
+.mr-1.data-v-1760d603 {
+  margin-right: 10rpx;
+}
+.mr-2.data-v-1760d603 {
+  margin-right: 20rpx;
+}
+.mb-1.data-v-1760d603 {
+  margin-bottom: 10rpx;
+}
+.mb-2.data-v-1760d603 {
+  margin-bottom: 20rpx;
+}
+.wrap-p.data-v-1760d603 {
+  padding: 12rpx 30rpx;
+}
+/* 定位 */
+.fixed-b.data-v-1760d603 {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 20px);
+  padding: 12rpx 24rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #edecf0;
+  box-shadow: 0 0 0 5rpx #eeedf1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  font-size: 30rpx;
+}
+/* 按钮 */
+.btn.data-v-1760d603 {
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 40px;
+  padding: 6rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+.btn-submit.data-v-1760d603 {
+  background-color: #ff4925;
+}
+.btn-left.data-v-1760d603 {
+  border-radius: 40rpx 0 0 40rpx;
+  background-color: #ff8917;
+  padding-left: 24rpx;
+}
+.btn-right.data-v-1760d603 {
+  border-radius: 0 40rpx 40rpx 0;
+  background-color: #ff4925;
+  padding-right: 24rpx;
+}
+/* 图片 */
+.img.data-v-1760d603 {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #edecf0;
+}
+.img-goods.data-v-1760d603 {
+  width: 100%;
+}
+.img-avatar-lg.data-v-1760d603 {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #edecf0;
+}
+.img-avatar-sm.data-v-1760d603 {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 1rpx solid #edecf0;
+}
+.cart-footer .select-all.data-v-1760d603, .cart-footer-right.data-v-1760d603 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+
