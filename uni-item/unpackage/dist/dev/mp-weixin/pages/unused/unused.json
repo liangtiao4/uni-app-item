@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "闲置",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "tab": "/components/Tab",
-    "card": "/components/Card"
-  }
-}

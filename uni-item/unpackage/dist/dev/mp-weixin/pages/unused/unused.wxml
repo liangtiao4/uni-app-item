@@ -1,1 +1,0 @@
-<view><tab vue-id="592e1e80-1" bind:__l="__l"></tab><view class="used-item"><card vue-id="592e1e80-2" toDetail="{{toUnusedDetail}}" bind:__l="__l"></card><card vue-id="592e1e80-3" bind:__l="__l"></card></view></view>

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "购物车",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "goods-card": "/components/GoodsCard",
-    "goods-submit": "/components/GoodsSubmit"
-  }
-}
