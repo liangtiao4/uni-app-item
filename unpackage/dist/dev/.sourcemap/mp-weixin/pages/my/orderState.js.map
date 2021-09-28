@@ -1,0 +1,1 @@
+{"version":3,"sources":["uni-app:///main.js"],"names":["createPage","Page"],"mappings":";;;;;;;;;;kDAAA;AACA;AACA,mG;AACAA,UAAU,CAACC,mBAAD,CAAV,C","file":"pages/my/orderState.js","sourcesContent":["import 'uni-pages';\nimport Vue from 'vue'\nimport Page from './pages/my/orderState.vue'\ncreatePage(Page)"],"sourceRoot":""}
