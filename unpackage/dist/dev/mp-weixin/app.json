@@ -4,7 +4,7 @@
     "pages/cart/cart",
     "pages/index/index",
     "pages/unused/unused",
-    "pages/unused/unusedDetail"
+    "pages/unused/detail"
   ],
   "subPackages": [],
   "window": {

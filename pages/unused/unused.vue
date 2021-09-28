@@ -22,7 +22,7 @@ export default {
 	methods: {
 		toUnusedDetail () {
 			uni.navigateTo({
-				url: './unusedDetail'
+				url: './detail'
 			})
 		}
 	}
