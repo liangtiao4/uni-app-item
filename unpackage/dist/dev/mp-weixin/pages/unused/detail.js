@@ -168,7 +168,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 {
-  name: 'unusedDetail',
+  name: 'detail',
   components: { GoodsAction: GoodsAction } };exports.default = _default;
 
 /***/ }),

@@ -36,7 +36,7 @@
 <script>
 import GoodsAction from '@/components/GoodsAction.vue'
 export default {
-	name: 'unusedDetail',
+	name: 'detail',
 	components: { GoodsAction }
 }
 </script>
