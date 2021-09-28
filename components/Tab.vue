@@ -5,6 +5,7 @@
 			class="tab-title-item"
 			v-for="(t, i) in tablist"
 			:key="i"
+			@click="changeTab(i)"
 		>
 			<text :class="i === cIndex ? tabactive : '' ">
 				{{t}}
@@ -25,9 +26,12 @@ export default {
 			default: 'default-active'
 		}
 	},
-	data() {
-		return { cIndex: 0 };
-		// tabList: ['换妆品', '书籍', '杂物', '其他'],
+	data() { return { cIndex: 0 } },
+	methods: {
+		changeTab (i) {
+			this.cIndex = i
+			this.$emit('updatelist', i)
+		}
 	}
 }
 </script>

@@ -26,6 +26,7 @@
 
 <script>
 import CardGoods from '@/components/CardGoods.vue'
+import { mapState } from 'vuex'
 export default {
 	components: { CardGoods },
 	data() {
@@ -43,11 +44,12 @@ export default {
 		}
 	},
 	onLoad() {
-		
+		console.log(this.$store)
+	},
+	computed: {
+		...mapState(['msg'])
 	},
 	methods: {
-		toCart () {
-		},
 		toItemPage (index) {
 			const routes = ['unused', '', '']
 			const route = routes[index]

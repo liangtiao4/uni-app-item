@@ -1,19 +1,26 @@
 <template>
-<view class="card" @click="toDetail">
-	<view class="card-top">
-		<text class="fs-3">这是标题</text>
-		<view class="text-desc">刚刚</view>
-	</view>
-	<view class="card-middle">
-		<image src="../static/pro_item2.jpg" class="img mr-2"></image>
-		<view class="h-180 column-between">
-			<text>这是内容内容描述</text>
-			<price-format price="99" color="origin"></price-format>
+<view class="card">
+	<view class="card-item" @click="toDetail"
+		v-for="u in list"
+		:key="u._id"
+	>
+		<view class="card-item-top">
+			<text class="fs-3">{{u.title}}</text>
+			<view class="text-desc">{{u.time}}</view>
 		</view>
-	</view>
-	<view class="card-bottom text-desc">
-		<view class="mr-2">186 人浏览</view>
-		<view>8 人收藏</view>
+		<view class="card-item-middle">
+			<view>
+				<image :src="u.imgs[0]" class="img mr-2"/>
+			</view>
+			<view class="h-180 column-between">
+				<text class="row-hidden-2">{{u.content}}</text>
+				<price-format :price="u.price" color="origin"></price-format>
+			</view>
+		</view>
+		<view class="card-item-bottom text-desc">
+			<view class="mr-2">{{u.reading}} 人浏览</view>
+			<view>{{u.collect}} 人收藏</view>
+		</view>
 	</view>
 </view>
 </template>
@@ -23,13 +30,16 @@ import PriceFormat from '@/components/PriceFormat.vue'
 
 export default {
 	name:"CardUnsed",
-	props: ['toDetail'],
-	components: { PriceFormat }
+	props: ['list', 'toDetail'],
+	components: { PriceFormat },
+	onLoad() {
+		console.log(this)
+	}
 }
 </script>
 
 <style lang="scss">
-.card {
+.card-item {
 	font-size: $font-size-normal;
 	border: 1rpx solid $b-color;
 	border-radius: 10rpx;

@@ -48,7 +48,7 @@
 .fs-0 {
   font-size: 24rpx;
 }
-.fs-1, .card-bottom {
+.fs-1, .card-item-bottom {
   font-size: 28rpx;
 }
 .fs-2 {
@@ -71,13 +71,21 @@
 .i-size {
   font-size: 54rpx;
 }
+.row-hidden-2 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 /* flex常用布局 */
-.d-flex, .card-bottom {
+.d-flex, .card-item-bottom {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.row-between, .card-top {
+.row-between, .card-item-top {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -97,7 +105,7 @@
   -webkit-justify-content: space-between;
           justify-content: space-between;
 }
-.column-center, .card-middle {
+.column-center, .card-item-middle {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -142,13 +150,13 @@
 .mr-2 {
   margin-right: 20rpx;
 }
-.mb-1, .card-top {
+.mb-1, .card-item-top {
   margin-bottom: 10rpx;
 }
 .mb-2 {
   margin-bottom: 20rpx;
 }
-.mt-1, .card-bottom {
+.mt-1, .card-item-bottom {
   margin-top: 12rpx;
 }
 .wrap-p {
@@ -237,7 +245,7 @@
   width: 50rpx;
   height: 50rpx;
 }
-.card {
+.card-item {
   font-size: 34rpx;
   border: 1rpx solid #edecf0;
   border-radius: 10rpx;
