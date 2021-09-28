@@ -1,16 +1,16 @@
 <template>
 <view class="fixed-b">
-	<view class="goods-icons">
-		<view class="icons-con">
+	<view class="column-center">
+		<view class="icons-con center-column">
 			<uni-icons type="person" size="20"></uni-icons>
 			<text>卖家</text>
 		</view>
-		<view class="icons-con">
+		<view class="icons-con center-column">
 			<uni-icons type="star" size="20"></uni-icons>
 			<text>收藏</text>
 		</view>
 	</view>
-	<view class="goods-btns">
+	<view class="column-center">
 		<view class="btn btn-left">加入购物车</view>
 		<view class="btn btn-right">立即购买</view>
 	</view>
@@ -31,11 +31,7 @@ import UniIcons from '@/components/uni-icons/uni-icons.vue'
 </script>
 
 <style lang="scss">
-.goods-icons, .goods-btns {
-	@include row-center;
-}
 .icons-con {
-	@include column-center;
 	font-size: $font-size-sm;
 	margin: 0 $spcing-normal;
 }

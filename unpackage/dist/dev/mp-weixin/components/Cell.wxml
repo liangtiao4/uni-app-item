@@ -1,1 +1,1 @@
-<view class="cell flex-row"><view class="cell-left"><view class="{{['iconfont','i-size','_i',icon]}}"></view><text class="ml-2">{{title}}</text></view><view class="iconfont icon-jiantou-you i-size _i"></view></view>
+<view class="cell"><view class="column-center"><view class="{{['iconfont','i-size','_i',icon]}}"></view><text class="ml-2">{{title}}</text></view><view class="iconfont icon-jiantou-you i-size _i"></view></view>

@@ -1,5 +1,5 @@
 <template>
-<view class="grid">
+<view class="grid column-center" @click="$emit('toOrderPage')">
 	<view
 		class="grid-item"
 		v-for="g in list"
@@ -25,15 +25,12 @@ export default {
 
 <style lang="scss">
 .grid {
-	@include row-center;
-	font-size: $font-size-normal;
+	font-size: $font-size-sm;
 	&-item {
-		flex-grow: 1;
+		@extend .flex-grow-1;
 		text-align: center;
 		margin: $spcing-sm $spcing-normal;
-		.iconfont {
-			font-size: 60rpx;
-		}
+		.iconfont { font-size: 60rpx; }
 	}
 }
 </style>

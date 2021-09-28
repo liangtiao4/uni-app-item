@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Tab = function Tab() {__webpack_require__.e(/*! require.ensure | components/Tab */ "components/Tab").then((function () {return resolve(__webpack_require__(/*! @/components/Tab.vue */ 79));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Card = function Card() {__webpack_require__.e(/*! require.ensure | components/Card */ "components/Card").then((function () {return resolve(__webpack_require__(/*! @/components/Card.vue */ 86));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Tab = function Tab() {__webpack_require__.e(/*! require.ensure | components/Tab */ "components/Tab").then((function () {return resolve(__webpack_require__(/*! @/components/Tab.vue */ 85));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CardUnused = function CardUnused() {__webpack_require__.e(/*! require.ensure | components/CardUnused */ "components/CardUnused").then((function () {return resolve(__webpack_require__(/*! @/components/CardUnused.vue */ 92));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -145,12 +145,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 {
-  data: function data() {
-    return {};
-
-
-  },
-  components: { Tab: Tab, Card: Card },
+  components: { Tab: Tab, CardUnused: CardUnused },
   methods: {
     toUnusedDetail: function toUnusedDetail() {
       uni.navigateTo({

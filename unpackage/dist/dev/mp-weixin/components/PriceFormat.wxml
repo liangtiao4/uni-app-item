@@ -1,0 +1,1 @@
+<view class="{{['price-format',color]}}"><block wx:if="{{title}}"><text class="mr-1">{{title+":"}}</text></block><text class="fs-1">￥</text><text class="price"><text>{{integer+"."}}</text><text class="fs-0">{{decimal}}</text></text></view>

@@ -6,30 +6,28 @@
 		</swiper-item>
 	</swiper>
 	<view class="title">精选项目</view>
-	<view class="products">
-		<view class="products-item" v-for="(item, i) in productsList" :key='item.id' @click="toItemPage(i)">
+	<view class="products d-flex">
+		<view class="products-item flex-grow-1 center-column" v-for="(item, i) in productsList" :key='item.id' @click="toItemPage(i)">
 			<image :src="item.imgUrl" alt="项目图片"></image>
 			<text>{{item.name}}</text>
 		</view>
 	</view>
 	<view class="recommend">
 		<text class="recommend-title">推荐</text>
-		<view class="">
-			<goods-card>
-				<text class="vertically-center">浏览10086</text>
-			</goods-card>
-			<goods-card>
-				<text class="vertically-center">浏览10086</text>
-			</goods-card>
-		</view>
+		<card-goods>
+			<text class="column-center text-desc">浏览10086</text>
+		</card-goods>
+		<card-goods>
+			<text class="column-center text-desc">浏览10086</text>
+		</card-goods>
 	</view>
 </view>
 </template>
 
 <script>
-import GoodsCard from '@/components/GoodsCard.vue'
+import CardGoods from '@/components/CardGoods.vue'
 export default {
-	components: { GoodsCard },
+	components: { CardGoods },
 	data() {
 		return {
 			swiperList: [
@@ -84,15 +82,9 @@ export default {
 	padding-top: $spcing-sm;
 }
 .products {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	width: $ratio-100;
 	padding: $spcing-normal 0;
 	background-color: $bg-color;
 	&-item {
-		@include column-center;
-		flex-grow: 1;
 		image {
 			width: 180rpx;
 			height: 180rpx;
@@ -108,10 +100,11 @@ export default {
 
 .recommend {
 	margin-top: $spcing-normal;
+	padding: $spcing-normal 0;
 	background-color: $bg-color;
 	&-title {
 		display: block;
-		padding: $spcing-sm $spcing-lg;
+		padding: 0 $spcing-lg;
 		font-size: $font-size-normal;
 		font-weight: 500;
 		color: $color-commond;

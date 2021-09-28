@@ -2,24 +2,18 @@
 <view class="cart">
 	<view class="cart-goods">
 		<radio-group v-model="goods" @change="handleGoods">
-			<view class="cart-goods-item">
-				<label class="radio">
-					<radio
-						color="#328ee3"
-						value="111"
-					/>
-				</label>
-				<goods-card class="card" />
+			<view class="cart-goods-item column-center">
+				<radio class="ml-2" color="#328ee3" value="111" />
+				<card-goods class="flex-grow-1" />
 			</view>
 		</radio-group>
-		
 	</view>
 	<goods-submit />
 </view>
 </template>
 
 <script>
-import GoodsCard from '@/components/GoodsCard.vue'
+import CardGoods from '@/components/CardGoods.vue'
 import GoodsSubmit from '@/components/GoodsSubmit.vue'
 export default {
 	data() {
@@ -27,7 +21,7 @@ export default {
 			goods: []
 		}
 	},
-	components: { GoodsCard, GoodsSubmit },
+	components: { CardGoods, GoodsSubmit },
 	onLoad (options) {
 		console.log('options', options)
 	},
@@ -43,10 +37,5 @@ export default {
 .cart-goods {
 	background-color: $bg-color;
 	margin-top: $spcing-normal;
-	&-item {
-		@include row-center;
-		.radio { margin-left: $spcing-normal; }
-		.card { flex-grow: 1; }
-	}
 }
 </style>

@@ -2,23 +2,18 @@
 	<view>
 		<tab />
 		<view class="used-item">
-			<card :toDetail='toUnusedDetail' />
-			<card />
+			<card-unused :toDetail='toUnusedDetail' />
+			<card-unused />
 		</view>
 	</view>
 </template>
 
 <script>
 import Tab from '@/components/Tab.vue'
-import Card from '@/components/Card.vue'
+import CardUnused from '@/components/CardUnused.vue'
 
 export default {
-	data() {
-		return {
-			
-		}
-	},
-	components: { Tab, Card },
+	components: { Tab, CardUnused },
 	methods: {
 		toUnusedDetail () {
 			uni.navigateTo({

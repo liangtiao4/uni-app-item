@@ -130,13 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var GoodsCard = function GoodsCard() {__webpack_require__.e(/*! require.ensure | components/GoodsCard */ "components/GoodsCard").then((function () {return resolve(__webpack_require__(/*! @/components/GoodsCard.vue */ 65));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var GoodsSubmit = function GoodsSubmit() {__webpack_require__.e(/*! require.ensure | components/GoodsSubmit */ "components/GoodsSubmit").then((function () {return resolve(__webpack_require__(/*! @/components/GoodsSubmit.vue */ 72));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-
-
-
-
-
-
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var CardGoods = function CardGoods() {__webpack_require__.e(/*! require.ensure | components/CardGoods */ "components/CardGoods").then((function () {return resolve(__webpack_require__(/*! @/components/CardGoods.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var GoodsSubmit = function GoodsSubmit() {__webpack_require__.e(/*! require.ensure | components/GoodsSubmit */ "components/GoodsSubmit").then((function () {return resolve(__webpack_require__(/*! @/components/GoodsSubmit.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -159,7 +153,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       goods: [] };
 
   },
-  components: { GoodsCard: GoodsCard, GoodsSubmit: GoodsSubmit },
+  components: { CardGoods: CardGoods, GoodsSubmit: GoodsSubmit },
   onLoad: function onLoad(options) {
     console.log('options', options);
   },

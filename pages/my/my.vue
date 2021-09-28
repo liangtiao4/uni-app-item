@@ -1,18 +1,18 @@
 <template>
 <view class="my">
-	<view class="my-info">
+	<view class="my-info column-center">
 		<image
 			src="../../static/pro_item1.jpg"
-			class="img-avatar-lg mr-2"
+			class="img-avatar ia-normal mr-2"
 		/>
-		<view class="nickname">
+		<view class="column-between h-120">
 			<text>落日余晖</text>
 			<text class="text-desc">这个家伙很懒，什么都没留下。</text>
 		</view>
 	</view>
 	<view class="my-goods-status">
 		<text class="text-title">我的订单</text>
-		<grid :list='gridList' />
+		<grid :list='gridList' @toOrderPage='toOrder' />
 	</view>
 	<view class="my-cell">
 		<view v-for="item in myList" :key="item.id">
@@ -43,7 +43,9 @@ export default {
 		}
 	},
 	methods: {
-		
+		toOrder () {
+			uni.navigateTo({ url: './orderState' }) 
+		}
 	}
 }
 </script>
@@ -52,11 +54,6 @@ export default {
 .my-info {
 	background-color: $bg-color;
 	padding: $spcing-normal $spcing-slg;
-	@include row-center;
-	.nickname {
-		@include flex-column;
-		height: 120rpx
-	}
 }
 .my-goods-status, .my-cell {
 	background-color: $bg-color;

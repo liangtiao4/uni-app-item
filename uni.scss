@@ -1,9 +1,9 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2788829 */
-  src: url('//at.alicdn.com/t/font_2788829_vxen0klyph8.woff2?t=1632659927054') format('woff2'),
-       url('//at.alicdn.com/t/font_2788829_vxen0klyph8.woff?t=1632659927054') format('woff'),
-       url('//at.alicdn.com/t/font_2788829_vxen0klyph8.ttf?t=1632659927054') format('truetype'),
-       url('//at.alicdn.com/t/font_2788829_vxen0klyph8.svg?t=1632659927054#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.woff2?t=1632815295109') format('woff2'),
+       url('//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.woff?t=1632815295109') format('woff'),
+       url('//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.ttf?t=1632815295109') format('truetype'),
+       url('//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.svg?t=1632815295109#iconfont') format('svg');
 }
 
 .iconfont {
@@ -12,6 +12,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-nothing:before {
+  content: "\e60b";
 }
 
 .icon-kefu:before {
@@ -56,6 +60,8 @@ $bg-color: #fff;
 $bg-color-grey: #f8f8f8; // 灰色
 $bg-color-commond: #ffaa00;
 /* 字体颜色 */
+$color-default: #333333;
+$color-grey: #787878;
 $color-commond: #8f4b2e;
 $color-red: #ff4925;
 $color-orange: #ff8917;
@@ -64,22 +70,16 @@ $color-orange: #ff8917;
 $b-color: #edecf0;
 
 /* 文字尺寸 */
-$font-size-sm: 24rpx;
-$font-size-normal: 30rpx;
+$font-size-sm: 28rpx;
+$font-size-normal: 34rpx;
 $font-size-lg: 36rpx;
-.fs-1{ font-size: 24rpx; }
-.fs-2{ font-size: 30rpx; }
+.fs-0{ font-size: 24rpx; }
+.fs-1{ font-size: 28rpx; }
+.fs-2{ font-size: 34rpx; }
 .fs-3{ font-size: 36rpx; }
-.text-price {
-	font-size: $font-size-normal;
-	color: $color-red;
-}
-.price-symbol {
-	font-size: $font-size-sm;
-}
 .text-desc {
 	font-size: 26rpx;
-	color: #838284;
+	color: #727273;
 }
 .text-title {
 	display: block;
@@ -90,33 +90,44 @@ $font-size-lg: 36rpx;
 }
 .i-size { font-size: 54rpx; }
 
-/* 常用flex组合 */
-@mixin row-center {
+/* flex常用布局 */
+.d-flex { display: flex; }
+.row-between {
+	// 水平方向两边对齐
 	display: flex;
-	align-items: center;
+	justify-content: space-between;
 }
-@mixin column-center {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-@mixin flex-column {
+.column-between {
+	// 垂直方向上下对齐
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
-.flex-row {
-	display: flex;
-	justify-content: space-between;
-}
-.vertically-center {
+.column-center {
+	// 方向水平垂直居中
 	display: flex;
 	align-items: center;
 }
+.center-column {
+	// 水平垂直居中, 排列方向向下
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.flex-grow-1 { flex-grow: 1; }
 
-/* 百分比 */
+/* 百分比、宽高 */
 $ratio-100: 100%;
 $ratio-50: 50%;
+.h-180 {
+	// 商品展示图片的高度
+	height: 180rpx;
+}
+.h-120 {
+	// 个人信息昵称高度
+	height: 120rpx;
+}
 
 /* 间隔 */
 $spcing-ssm: 6rpx;
@@ -129,20 +140,29 @@ $spcing-slg: 44rpx;
 .mr-2 { margin-right: 20rpx; }
 .mb-1 { margin-bottom: 10rpx; }
 .mb-2 { margin-bottom: 20rpx; }
+.mt-1 { margin-top: 12rpx; }
 .wrap-p {
 	padding: $spcing-sm $spcing-lg;
+}
+.p-sm { padding: 12rpx; }
+@mixin card-wrap {
+	@extend .column-center;
+	padding: 0 $spcing-normal;
+	margin: $spcing-normal 0;
+	height: 180rpx;
 }
 
 /* 定位 */
 .fixed-b {
 	position: fixed;
 	bottom: 0;
+	display: flex;
+	align-items: center;
 	width: calc(100% - 20px);
 	padding: $spcing-sm $spcing-normal;
 	background-color: $bg-color;
 	border-top: 1rpx solid $b-color;
 	box-shadow: 0 0 0 5rpx #eeedf1;
-	@include row-center;
 	justify-content: space-between;
 	font-size: $font-size-normal;
 }
@@ -171,6 +191,14 @@ $spcing-slg: 44rpx;
 	background-color: $color-red;
 	padding-right: $spcing-normal;
 }
+.btn-default {
+	width: 75px;
+	height: 24px;
+	line-height: 24px;
+	font-size: $font-size-normal;
+	color: $color-default;
+	border: 1rpx solid $b-color;
+}
 
 /* 图片 */
 .img {
@@ -182,16 +210,21 @@ $spcing-slg: 44rpx;
 .img-goods {
 	width: 100%;
 }
-.img-avatar-lg {
+.img-avatar {
+	border-radius: $ratio-50;	
+	border: 1rpx solid $b-color;
+	margin-right: $spcing-sm;
+}
+.ia-normal {
 	width: 140rpx;
 	height: 140rpx;
 	border-radius: 30rpx;
-	border: 1rpx solid $b-color;
 }
-.img-avatar-sm {
-	width: 80rpx;
-	height: 80rpx;
-	border-radius: $ratio-50;
-	border: 1rpx solid $b-color;
+.ia-sm {
+	width: 85rpx;
+	height: 85rpx;
 }
-
+.ia-ssm {
+	width: 50rpx;
+	height: 50rpx;
+}

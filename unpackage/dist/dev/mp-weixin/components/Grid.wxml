@@ -1,1 +1,1 @@
-<view class="grid"><block wx:for="{{list}}" wx:for-item="g" wx:for-index="__i0__" wx:key="id"><view class="grid-item"><view class="{{['iconfont','mb-2','_i',g.icon]}}"></view><text>{{g.name}}</text></view></block></view>
+<view data-event-opts="{{[['tap',[['$emit',['toOrderPage']]]]]}}" class="grid column-center" bindtap="__e"><block wx:for="{{list}}" wx:for-item="g" wx:for-index="__i0__" wx:key="id"><view class="grid-item"><view class="{{['iconfont','mb-2','_i',g.icon]}}"></view><text>{{g.name}}</text></view></block></view>

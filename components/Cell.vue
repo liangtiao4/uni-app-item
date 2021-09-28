@@ -1,6 +1,6 @@
 <template>
-<view class="cell flex-row">
-	<view class="cell-left">
+<view class="cell">
+	<view class="column-center">
 		<i class="iconfont i-size" :class="icon"></i>
 		<text class="ml-2">{{title}}</text>
 	</view>
@@ -17,10 +17,8 @@ export default {
 
 <style lang="scss">
 .cell {
+	@extend .row-between;
 	padding: $spcing-normal $spcing-sm;
 	font-size: $font-size-lg;
-	&-left {
-		@include row-center;
-	}
 }
 </style>

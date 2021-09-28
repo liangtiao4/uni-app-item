@@ -2,7 +2,7 @@
 @font-face {
   font-family: "iconfont";
   /* Project id 2788829 */
-  src: url("//at.alicdn.com/t/font_2788829_vxen0klyph8.woff2?t=1632659927054") format("woff2"), url("//at.alicdn.com/t/font_2788829_vxen0klyph8.woff?t=1632659927054") format("woff"), url("//at.alicdn.com/t/font_2788829_vxen0klyph8.ttf?t=1632659927054") format("truetype"), url("//at.alicdn.com/t/font_2788829_vxen0klyph8.svg?t=1632659927054#iconfont") format("svg");
+  src: url("//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.woff2?t=1632815295109") format("woff2"), url("//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.woff?t=1632815295109") format("woff"), url("//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.ttf?t=1632815295109") format("truetype"), url("//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.svg?t=1632815295109#iconfont") format("svg");
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -10,6 +10,9 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-nothing:before {
+  content: "\e60b";
 }
 .icon-kefu:before {
   content: "\e6d7";
@@ -42,25 +45,21 @@
 /* 字体颜色 */
 /* 边框颜色 */
 /* 文字尺寸 */
-.fs-1 {
+.fs-0 {
   font-size: 24rpx;
 }
+.fs-1 {
+  font-size: 28rpx;
+}
 .fs-2 {
-  font-size: 30rpx;
+  font-size: 34rpx;
 }
 .fs-3 {
   font-size: 36rpx;
 }
-.text-price {
-  font-size: 30rpx;
-  color: #ff4925;
-}
-.price-symbol {
-  font-size: 24rpx;
-}
 .text-desc {
   font-size: 26rpx;
-  color: #838284;
+  color: #727273;
 }
 .text-title {
   display: block;
@@ -72,8 +71,13 @@
 .i-size {
   font-size: 54rpx;
 }
-/* 常用flex组合 */
-.flex-row {
+/* flex常用布局 */
+.d-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.row-between {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -81,7 +85,19 @@
   -webkit-justify-content: space-between;
           justify-content: space-between;
 }
-.vertically-center {
+.column-between {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.column-center {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -89,7 +105,33 @@
   -webkit-align-items: center;
           align-items: center;
 }
-/* 百分比 */
+.center-column {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.flex-grow-1 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+          flex-grow: 1;
+}
+/* 百分比、宽高 */
+.h-180 {
+  height: 180rpx;
+}
+.h-120 {
+  height: 120rpx;
+}
 /* 间隔 */
 .ml-2 {
   margin-left: 20rpx;
@@ -106,28 +148,34 @@
 .mb-2 {
   margin-bottom: 20rpx;
 }
+.mt-1 {
+  margin-top: 12rpx;
+}
 .wrap-p {
   padding: 12rpx 30rpx;
+}
+.p-sm {
+  padding: 12rpx;
 }
 /* 定位 */
 .fixed-b {
   position: fixed;
   bottom: 0;
-  width: calc(100% - 20px);
-  padding: 12rpx 24rpx;
-  background-color: #fff;
-  border-top: 1rpx solid #edecf0;
-  box-shadow: 0 0 0 5rpx #eeedf1;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
+  width: calc(100% - 20px);
+  padding: 12rpx 24rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #edecf0;
+  box-shadow: 0 0 0 5rpx #eeedf1;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
           justify-content: space-between;
-  font-size: 30rpx;
+  font-size: 34rpx;
 }
 /* 按钮 */
 .btn {
@@ -137,7 +185,7 @@
   line-height: 30px;
   border-radius: 40px;
   padding: 6rpx;
-  font-size: 30rpx;
+  font-size: 34rpx;
   color: #FFFFFF;
 }
 .btn-submit {
@@ -153,6 +201,14 @@
   background-color: #ff4925;
   padding-right: 24rpx;
 }
+.btn-default {
+  width: 75px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 34rpx;
+  color: #333333;
+  border: 1rpx solid #edecf0;
+}
 /* 图片 */
 .img {
   width: 180rpx;
@@ -163,38 +219,26 @@
 .img-goods {
   width: 100%;
 }
-.img-avatar-lg {
+.img-avatar {
+  border-radius: 50%;
+  border: 1rpx solid #edecf0;
+  margin-right: 12rpx;
+}
+.ia-normal {
   width: 140rpx;
   height: 140rpx;
   border-radius: 30rpx;
-  border: 1rpx solid #edecf0;
 }
-.img-avatar-sm {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  border: 1rpx solid #edecf0;
+.ia-sm {
+  width: 85rpx;
+  height: 85rpx;
 }
-.goods-icons, .goods-btns {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+.ia-ssm {
+  width: 50rpx;
+  height: 50rpx;
 }
 .icons-con {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  font-size: 24rpx;
+  font-size: 28rpx;
   margin: 0 24rpx;
 }
 

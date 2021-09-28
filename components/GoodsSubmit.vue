@@ -1,6 +1,6 @@
 <template>
 <view class="cart-footer fixed-b">
-	<label class="select-all">
+	<label class="column-center">
 		<radio
 			value="all"
 			color="#328ee3"
@@ -9,37 +9,31 @@
 		/>
 		<text>全选</text>
 	</label>
-	<view class="cart-footer-right">
-		<view class="text-price">
-			总计:
-			<text class="price-symbol">￥</text>
-			10086.00
-		</view>
+	<view class="column-center">
+		<price-format title="总计" price="10086" />
 		<view class="btn btn-submit ml-2">结算</view>
 	</view>
 </view>
 </template>
 
 <script>
-	export default {
-		name:"GoodsSubmit",
-		data() {
-			return {
-				isAll: false
-			};
-		},
-		methods: {
-			selectAll () {
-				this.isAll = !this.isAll
-			}
+import PriceFormat from '@/components/PriceFormat.vue'
+
+export default {
+	name:"GoodsSubmit",
+	components: { PriceFormat },
+	data() {
+		return {
+			isAll: false
+		};
+	},
+	methods: {
+		selectAll () {
+			this.isAll = !this.isAll
 		}
 	}
+}
 </script>
 
-<style lang="scss" scoped>
-.cart-footer {
-	.select-all, &-right {
-		@include row-center;
-	}
-}
+<style>
 </style>

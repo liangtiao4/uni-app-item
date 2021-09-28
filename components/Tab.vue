@@ -3,10 +3,10 @@
 	<view class="tab-title">
 		<view
 			class="tab-title-item"
-			v-for="(t, i) in tabList"
+			v-for="(t, i) in tablist"
 			:key="i"
 		>
-			<text :class="i === cIndex ? 'tab-active' : '' ">
+			<text :class="i === cIndex ? tabactive : '' ">
 				{{t}}
 			</text>
 		</view>
@@ -15,30 +15,42 @@
 </template>
 
 <script>
-	export default {
-		name:"Tab",
-		data() {
-			return {
-				tabList: ['换妆品', '书籍', '杂物', '其他'],
-				cIndex: 0
-			};
+export default {
+	name:"Tab",
+	props: {
+		tablist: { type: Array, required: true },
+		tabactive: {
+			type: 'default-active' | 'state-active',
+			required: true,
+			default: 'default-active'
 		}
+	},
+	data() {
+		return { cIndex: 0 };
+		// tabList: ['换妆品', '书籍', '杂物', '其他'],
 	}
+}
 </script>
 
 <style lang="scss">
 .tab-title {
-	@include row-center
+	@extend .column-center;
 	height: 30rpx;
-	background-color: $bg-color;
-	padding: $spcing-sm;
 	font-size: $font-size-normal;
+	padding-bottom: $spcing-normal;
 	&-item {
-		flex-grow: 1;
+		@extend .flex-grow-1;
 		text-align: center;
 	}
 }
-.tab-active {
+// 订单状态页面的行为
+.state-active {
+	font-size: $font-size-lg;
+	color: $color-orange;
+	font-weight: 600;
+}
+// 导航默认点击后行为
+.default-active {
 	border-bottom: 4rpx solid $color-orange;
 	padding: 5rpx $spcing-normal;
 }

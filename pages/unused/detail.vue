@@ -1,9 +1,9 @@
 <template>
 <view class="unused-detail">
-	<view class="seller wrap-p">
+	<view class="seller wrap-p column-center">
 		<image
 			src="../../static/pro_item1.jpg"
-			class="img-avatar-sm mr-1" />
+			class="img-avatar ia-sm mr-1" />
 		<text>两条4</text>
 	</view>
 	<view class="unused-desc wrap-p">
@@ -48,7 +48,6 @@ export default {
 	padding-bottom: 100rpx;
 }
 .seller {
-	@include row-center;
 	border-bottom: 1rpx solid $b-color;
 }
 </style>
