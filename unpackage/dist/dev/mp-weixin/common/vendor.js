@@ -876,7 +876,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2073,28 +2073,13 @@ function normalizeComponent (
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 12));
-var _data = __webpack_require__(/*! ./data.js */ 13);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _unused = _interopRequireDefault(__webpack_require__(/*! ./unused.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 _vue.default.use(_vuex.default);
 
 var store = new _vuex.default.Store({
-  state: {
-    unusedList: _data.unusedList,
-    unused: {},
-    cartList: _data.cartList,
-    recommendList: _data.recommendList },
-
-  mutations: {
-    getUnusedListBySort: function getUnusedListBySort(state, sort) {
-      var list = _data.unusedList;
-      if (sort) {
-        list = _data.unusedList.filter(function (item) {return item.sort === sort;});
-      }
-      state.unusedList = list;
-    },
-    getUnusedById: function getUnusedById(state, _id) {
-      state.unused = _data.unusedList.find(function (item) {return item._id === _id;});
-    } } });var _default =
+  modules: {
+    u: _unused.default } });var _default =
 
 
 
@@ -3216,83 +3201,68 @@ var index = {
 /***/ }),
 
 /***/ 13:
-/*!***********************************************!*\
-  !*** D:/git_store/uni-app-item/store/data.js ***!
-  \***********************************************/
+/*!*************************************************!*\
+  !*** D:/git_store/uni-app-item/store/unused.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.recommendList = exports.cartList = exports.unusedList = void 0;var unusedList = [
-{
-  _id: 'unu001',
-  nickname: '派大星',
-  avatar: '/static/avatar/017.jpg',
-  title: '星巴克环保杯',
-  content: '这是在星巴克最新发行的环保杯，通体白斩，还有好看的小图案点缀，创意满满。',
-  imgs: ['/static/avatar/002.jpg', '/static/avatar/003.jpg'],
-  tradeMethod: '自提',
-  price: 108,
-  time: '刚刚',
-  reading: 10086,
-  collect: 99,
-  sort: 'wp' },
-
-{
-  _id: 'unu007',
-  nickname: '傻大星',
-  avatar: '/static/avatar/018.jpg',
-  title: '神仙水300ml',
-  content: 'SK-II神仙水精华液 面部护肤品精华补水舒缓修护平衡水油skllsk2',
-  imgs: ['/static/avatar/005.jpg'],
-  tradeMethod: '派送',
-  price: 1024,
-  time: '1小时前',
-  reading: 404,
-  collect: 200,
-  sort: 'hzp' }];exports.unusedList = unusedList;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _data = __webpack_require__(/*! ./data.js */ 155);
 
 
 
-var cartList = [
-{
-  _id: 'cart009',
-  title: '一只海绵宝宝',
-  content: '海绵BOO宝公仔毛绒玩具抱枕玩偶压床布娃娃',
-  img: '/static/avatar/001.jpg',
-  price: 59,
-  count: 1,
-  unused_id: 'unu555' },
-
-{
-  _id: 'cart010',
-  title: '珊迪·奇克斯',
-  content: '珊迪·奇克斯是来自美国南部的德克萨斯州的雌性松鼠，身兼科学家、探险家和发明家',
-  img: '/static/avatar/004.jpg',
-  price: 99,
-  count: 2,
-  unused_id: 'unu333' }];exports.cartList = cartList;
 
 
+// 闲置状态管理
+var unused = {
+  state: function state() {return {
+      unusedList: _data.unusedList, // 闲置列表
+      unused: {}, // 闲置详情
+      cartList: _data.cartList, // 购物车列表
+      recommendList: _data.recommendList // 推荐列表
+    };},
+  mutations: {
+    // 获取分类后的闲置列表
+    getUnusedListBySort: function getUnusedListBySort(state, sort) {
+      var list = _data.unusedList;
+      if (sort) {
+        list = _data.unusedList.filter(function (item) {return item.sort === sort;});
+      }
+      state.unusedList = list;
+    },
+    // 通过id获取对应闲置详情
+    getUnusedById: function getUnusedById(state, _id) {
+      state.unused = _data.unusedList.find(function (item) {return item._id === _id;});
+    },
+    // 购物车选择闲置
+    checkUnused: function checkUnused(_ref, _id) {var cartList = _ref.cartList;
+      cartList.forEach(function (item) {
+        if (item._id === _id) {
+          item.isCheck = !item.isCheck;
+        }
+      });
+    },
+    // 购物车全选
+    selectAllUnused: function selectAllUnused(_ref2, flag) {var cartList = _ref2.cartList;
+      cartList.map(function (item) {return item.isCheck = flag;});
+    } },
 
-var recommendList = [
-{
-  _id: 'cart173',
-  title: '章鱼哥',
-  content: '店铺推荐KAPPA卡帕鞋男女情侣款跑步鞋时尚运动休闲板鞋K0865CC55',
-  img: '/static/avatar/003.jpg',
-  price: 129,
-  reading: 666,
-  unused_id: 'unu384' },
+  getters: {
+    // 购物车闲置总计
+    totalPrice: function totalPrice(_ref3) {var cartList = _ref3.cartList;
+      return cartList.reduce(function (total, item) {
+        return item.isCheck ? total + item.count * item.price : total;
+      }, 0);
+    },
+    // 购物车全选
+    isAll: function isAll(_ref4) {var cartList = _ref4.cartList;
+      return cartList.every(function (item) {return item.isCheck;});
+    } } };var _default =
 
-{
-  _id: 'cart429',
-  title: '书包',
-  content: '书包女中学生初中生高中学生大学生ins风原宿潮大容量日系双肩包',
-  img: '/static/avatar/006.jpg',
-  price: 18,
-  reading: 500,
-  unused_id: 'unu087' }];exports.recommendList = recommendList;
+
+
+unused;exports.default = _default;
 
 /***/ }),
 
@@ -3435,6 +3405,89 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   "cloud-download-filled": "\uE8E9",
   "headphones": "\uE8BF",
   "shop": "\uE609" };exports.default = _default;
+
+/***/ }),
+
+/***/ 155:
+/*!***********************************************!*\
+  !*** D:/git_store/uni-app-item/store/data.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.recommendList = exports.cartList = exports.unusedList = void 0;var unusedList = [
+{
+  _id: 'unu001',
+  nickname: '派大星',
+  avatar: '/static/avatar/017.jpg',
+  title: '星巴克环保杯',
+  content: '这是在星巴克最新发行的环保杯，通体白斩，还有好看的小图案点缀，创意满满。',
+  imgs: ['/static/avatar/002.jpg', '/static/avatar/003.jpg'],
+  tradeMethod: '自提',
+  price: 108,
+  time: '刚刚',
+  reading: 10086,
+  collect: 99,
+  sort: 'wp' },
+
+{
+  _id: 'unu007',
+  nickname: '傻大星',
+  avatar: '/static/avatar/018.jpg',
+  title: '神仙水300ml',
+  content: 'SK-II神仙水精华液 面部护肤品精华补水舒缓修护平衡水油skllsk2',
+  imgs: ['/static/avatar/005.jpg'],
+  tradeMethod: '派送',
+  price: 1024,
+  time: '1小时前',
+  reading: 404,
+  collect: 200,
+  sort: 'hzp' }];exports.unusedList = unusedList;
+
+
+
+var cartList = [
+{
+  _id: 'cart009',
+  title: '一只海绵宝宝',
+  content: '海绵BOO宝公仔毛绒玩具抱枕玩偶压床布娃娃',
+  img: '/static/avatar/001.jpg',
+  price: 59,
+  count: 1,
+  unused_id: 'unu555',
+  isCheck: true },
+
+{
+  _id: 'cart010',
+  title: '珊迪·奇克斯',
+  content: '珊迪·奇克斯是来自美国南部的德克萨斯州的雌性松鼠，身兼科学家、探险家和发明家',
+  img: '/static/avatar/004.jpg',
+  price: 99,
+  count: 2,
+  unused_id: 'unu333',
+  isCheck: true }];exports.cartList = cartList;
+
+
+
+var recommendList = [
+{
+  _id: 'cart173',
+  title: '章鱼哥',
+  content: '店铺推荐KAPPA卡帕鞋男女情侣款跑步鞋时尚运动休闲板鞋K0865CC55',
+  img: '/static/avatar/003.jpg',
+  price: 129,
+  reading: 666,
+  unused_id: 'unu384' },
+
+{
+  _id: 'cart429',
+  title: '书包',
+  content: '书包女中学生初中生高中学生大学生ins风原宿潮大容量日系双肩包',
+  img: '/static/avatar/006.jpg',
+  price: 18,
+  reading: 500,
+  unused_id: 'unu087' }];exports.recommendList = recommendList;
 
 /***/ }),
 
@@ -8965,7 +9018,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8986,14 +9039,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9079,7 +9132,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));

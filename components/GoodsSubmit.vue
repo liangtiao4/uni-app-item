@@ -5,24 +5,33 @@
 			value="all"
 			color="#328ee3"
 			:checked="isAll"
-			@click="$emit('setisall', !isAll)"
+			@click="selectAllUnused(!isAll)"
 		/>
 		<text>全选</text>
 	</label>
 	<view class="column-center">
-		<price-format title="总计" price="10086" />
-		<view class="btn btn-submit ml-2">结算</view>
+		<price-format title="总计" :price="totalPrice" />
+		<view class="btn btn-submit ml-2" @click="settlement">结算</view>
 	</view>
 </view>
 </template>
 
 <script>
 import PriceFormat from '@/components/PriceFormat.vue'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
 	name:"GoodsSubmit",
 	components: { PriceFormat },
-	props: ['isAll']
+	computed: {
+		...mapGetters(['isAll', 'totalPrice']),
+	},
+	methods: {
+		...mapMutations(['selectAllUnused']),
+		settlement () {
+			uni.showToast({ title: '暂无结算逻辑', icon: 'none' })
+		}
+	}
 }
 </script>
 

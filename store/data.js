@@ -37,7 +37,8 @@ export const cartList = [
 		img: '/static/avatar/001.jpg',
 		price: 59,
 		count: 1,
-		unused_id: 'unu555'
+		unused_id: 'unu555',
+		isCheck: true
 	},
 	{
 		_id: 'cart010',
@@ -46,7 +47,8 @@ export const cartList = [
 		img: '/static/avatar/004.jpg',
 		price: 99,
 		count: 2,
-		unused_id: 'unu333'
+		unused_id: 'unu333',
+		isCheck: true
 	}
 ]
 

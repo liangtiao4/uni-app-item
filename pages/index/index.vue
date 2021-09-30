@@ -6,16 +6,27 @@
 		</swiper-item>
 	</swiper>
 	<view class="title">精选项目</view>
-	<view class="products d-flex">
-		<view class="products-item flex-grow-1 center-column" v-for="(item, i) in productsList" :key='item.id' @click="toItemPage(i)">
+	<view class="products">
+		<view
+			class="products-item"
+			v-for="(item, i) in productsList"
+			:key='item.id'
+			@click="toItemPage(i)"
+		>
 			<image :src="item.imgUrl" alt="项目图片"></image>
 			<text>{{item.name}}</text>
 		</view>
 	</view>
 	<view class="recommend">
 		<text class="recommend-title">推荐</text>
-		<card-goods v-for="r in recommendList" :key="r._id" :data="r">
-			<text class="column-center text-desc">浏览{{r.reading}}</text>
+		<card-goods
+			v-for="r in recommendList"
+			:key="r._id" :data="r"
+			@todetail='toDetail'
+		>
+			<text class="column-center text-desc">
+				浏览{{r.reading}}
+			</text>
 		</card-goods>
 	</view>
 </view>
@@ -41,11 +52,10 @@ export default {
 			]
 		}
 	},
-	onLoad() {
-		// console.log(this.$store)
-	},
 	computed: {
-		...mapState(['recommendList'])
+		...mapState({
+			recommendList: state => state.u.recommendList
+		})
 	},
 	methods: {
 		toItemPage (index) {
@@ -60,6 +70,10 @@ export default {
 					icon: 'none'
 				})
 			}
+		},
+		// 到推荐详情
+		toDetail () {
+			uni.showToast({ icon: 'none', title: '暂无推荐逻辑！' })
 		}
 	}
 }
@@ -82,9 +96,11 @@ export default {
 	padding-top: $spcing-sm;
 }
 .products {
+	@extend .d-flex;
 	padding: $spcing-normal 0;
 	background-color: $bg-color;
 	&-item {
+		@extend .flex-grow-1, .center-column;
 		image {
 			width: 180rpx;
 			height: 180rpx;

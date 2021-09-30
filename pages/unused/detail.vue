@@ -37,7 +37,7 @@ export default {
 	name: 'detail',
 	components: { GoodsAction, PriceFormat },
 	computed: {
-		...mapState(['unused'])
+		...mapState({ unused: state => state.u.unused })
 	},
 	methods: {
 		...mapMutations(['getUnusedById'])

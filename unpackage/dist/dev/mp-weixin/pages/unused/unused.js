@@ -154,7 +154,9 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
     return { tabList: ['全部', '换妆品', '物品', '其他'] }; /*  */
   },
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['unusedList'])),
+  (0, _vuex.mapState)({
+    unusedList: function unusedList(state) {return state.u.unusedList;} })),
+
 
   mounted: function mounted() {
     this.getUnusedListBySort('');

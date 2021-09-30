@@ -88,7 +88,7 @@
   -webkit-box-orient: vertical;
 }
 /* flex常用布局 */
-.d-flex {
+.d-flex, .products {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -121,7 +121,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.center-column {
+.center-column, .products-item {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -136,7 +136,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.flex-grow-1 {
+.flex-grow-1, .products-item {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
           flex-grow: 1;

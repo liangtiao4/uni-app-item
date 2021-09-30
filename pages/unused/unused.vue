@@ -22,7 +22,9 @@ export default {
 		return { tabList: ['全部', '换妆品', '物品', '其他'] }/*  */
 	},
 	computed: {
-		...mapState(['unusedList'])
+		...mapState({
+			unusedList: state => state.u.unusedList
+		})
 	},
 	mounted () {
 		this.getUnusedListBySort('')

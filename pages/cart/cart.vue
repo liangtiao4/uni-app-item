@@ -1,49 +1,36 @@
 <template>
 <view class="cart">
 	<view class="cart-goods">
-		<checkbox-group @change='getGoods'>
-			<view class="cart-goods-item"
-				v-for="c in cartList"
-				:key="c._id"
-			>
-				<checkbox class="ml-2" color="#328ee3" :value="c.unused_id" :checked="goods.includes(c.unused_id)"/>
-				<card-goods class="flex-grow-1" :data='c' />
-			</view>
-		</checkbox-group>
+		<view class="cart-goods-item"
+			v-for="c in cartList"
+			:key="c._id"
+		>
+			<checkbox
+				class="ml-2"
+				color="#328ee3"
+				:value="c.unused_id"
+				:checked="c.isCheck"
+				@click="checkUnused(c._id)"
+			/>
+			<card-goods class="flex-grow-1" :data='c' />
+		</view>
 	</view>
-	<goods-submit :isAll='isAll' @setisall='setIsAll' />
+	<goods-submit />
 </view>
 </template>
 
 <script>
 import CardGoods from '@/components/CardGoods.vue'
 import GoodsSubmit from '@/components/GoodsSubmit.vue'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
 	components: { CardGoods, GoodsSubmit },
-	data () {
-		return {
-			isAll: false,
-			goods: []
-		}
+	computed: { 
+		...mapState({ cartList: state => state.u.cartList })
 	},
-	computed: { ...mapState(['cartList']) },
 	methods: {
-		getGoods (ev) {
-			// 判断是否全选
-			const selectGoods = ev.detail.value
-			this.goods = selectGoods
-			this.isAll = selectGoods.length === this.cartList.length
-		},
-		setIsAll (flag) {
-			this.isAll = flag
-			let list = []
-			if (flag) {
-				this.cartList.forEach(item => list.push(item.unused_id))
-			}
-			this.goods = list
-		}
+		...mapMutations(['checkUnused'])
 	}
 }
 </script>

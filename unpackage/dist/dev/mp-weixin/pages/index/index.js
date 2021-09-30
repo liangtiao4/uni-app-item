@@ -163,6 +163,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var CardGoods = function CardGoods() {__webpack_require__.e(/*! require.ensure | components/CardGoods */ "components/CardGoods").then((function () {return resolve(__webpack_require__(/*! @/components/CardGoods.vue */ 62));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
@@ -181,11 +192,10 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 
 
   },
-  onLoad: function onLoad() {
-    // console.log(this.$store)
-  },
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['recommendList'])),
+  (0, _vuex.mapState)({
+    recommendList: function recommendList(state) {return state.u.recommendList;} })),
+
 
   methods: {
     toItemPage: function toItemPage(index) {
@@ -200,6 +210,10 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
           icon: 'none' });
 
       }
+    },
+    // 到推荐详情
+    toDetail: function toDetail() {
+      uni.showToast({ icon: 'none', title: '暂无推荐逻辑！' });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

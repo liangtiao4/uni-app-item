@@ -169,7 +169,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
   name: 'detail',
   components: { GoodsAction: GoodsAction, PriceFormat: PriceFormat },
   computed: _objectSpread({},
-  (0, _vuex.mapState)(['unused'])),
+  (0, _vuex.mapState)({ unused: function unused(state) {return state.u.unused;} })),
 
   methods: _objectSpread({},
   (0, _vuex.mapMutations)(['getUnusedById'])),

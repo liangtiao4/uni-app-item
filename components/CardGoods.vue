@@ -1,5 +1,5 @@
 <template>
-<view class="goods-card">
+<view class="goods-card" @click="$emit('todetail')">
 	<view class="mr-2">
 		<image :src="data.img" class="img"/>
 	</view>
