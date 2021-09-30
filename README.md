@@ -37,15 +37,15 @@ Vue2 + Vuex + uni-app + uni-ui + uView
 
 Tarbar
 
-![tarbar](https://github.com/liangtiao4/uni-app-item/blob/main/mdImgs/other.png)
+![tarbar](https://github.com/liangtiao4/uni-app-item/blob/main/mdImgs/tarbar.png)
 
 Unused
 
-![unused](mdImgs\unused.png)
+![unused](https://github.com/liangtiao4/uni-app-item/blob/main/mdImgs/unused.png)
 
 Other
 
-![other](mdImgs\other.png)
+![other](https://github.com/liangtiao4/uni-app-item/blob/main/mdImgs/other.png)
 
 
 
