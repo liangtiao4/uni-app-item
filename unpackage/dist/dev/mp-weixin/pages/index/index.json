@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "荔园小益",
+  "navigationBarTitleText": "首页",
   "usingComponents": {
     "card-goods": "/components/CardGoods"
   }
