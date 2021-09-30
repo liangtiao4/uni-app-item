@@ -37,7 +37,7 @@ Vue2 + Vuex + uni-app + uni-ui + uView
 
 Tarbar
 
-![tarbar](mdImgs\tarbar.png)
+![tarbar](https://github.com/liangtiao4/uni-app-item/blob/main/mdImgs/other.png)
 
 Unused
 
