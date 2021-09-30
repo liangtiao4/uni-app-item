@@ -2,6 +2,7 @@
   "navigationBarTitleText": "闲置详情",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "goods-action": "/components/GoodsAction"
+    "goods-action": "/components/GoodsAction",
+    "price-format": "/components/PriceFormat"
   }
 }

@@ -5,7 +5,7 @@
 			value="all"
 			color="#328ee3"
 			:checked="isAll"
-			@click="selectAll"
+			@click="$emit('setisall', !isAll)"
 		/>
 		<text>全选</text>
 	</label>
@@ -22,16 +22,7 @@ import PriceFormat from '@/components/PriceFormat.vue'
 export default {
 	name:"GoodsSubmit",
 	components: { PriceFormat },
-	data() {
-		return {
-			isAll: false
-		};
-	},
-	methods: {
-		selectAll () {
-			this.isAll = !this.isAll
-		}
-	}
+	props: ['isAll']
 }
 </script>
 

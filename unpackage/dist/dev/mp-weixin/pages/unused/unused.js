@@ -146,29 +146,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Tab = function Tab() {__webpack_require__.e(/*! require.ensure | components/Tab */ "components/Tab").then((function () {return resolve(__webpack_require__(/*! @/components/Tab.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CardUnused = function CardUnused() {__webpack_require__.e(/*! require.ensure | components/CardUnused */ "components/CardUnused").then((function () {return resolve(__webpack_require__(/*! @/components/CardUnused.vue */ 95));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Tab = function Tab() {__webpack_require__.e(/*! require.ensure | components/Tab */ "components/Tab").then((function () {return resolve(__webpack_require__(/*! @/components/Tab.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CardUnused = function CardUnused() {__webpack_require__.e(/*! require.ensure | components/CardUnused */ "components/CardUnused").then((function () {return resolve(__webpack_require__(/*! @/components/CardUnused.vue */ 95));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Nothing = function Nothing() {__webpack_require__.e(/*! require.ensure | components/Nothing */ "components/Nothing").then((function () {return resolve(__webpack_require__(/*! @/components/Nothing.vue */ 102));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
-  components: { Tab: Tab, CardUnused: CardUnused },
+  components: { Tab: Tab, CardUnused: CardUnused, Nothing: Nothing },
   data: function data() {
-    return { tabList: ['全部', '换妆品', '物品', '其他'] };
+    return { tabList: ['全部', '换妆品', '物品', '其他'] }; /*  */
   },
   computed: _objectSpread({},
   (0, _vuex.mapState)(['unusedList'])),
 
+  mounted: function mounted() {
+    this.getUnusedListBySort('');
+  },
   methods: _objectSpread(_objectSpread({},
-  (0, _vuex.mapMutations)(['setUnusedList'])), {}, {
-    toUnusedDetail: function toUnusedDetail() {
+  (0, _vuex.mapMutations)(['getUnusedListBySort'])), {}, {
+    toDetail: function toDetail(id) {
       uni.navigateTo({
-        url: './detail' });
+        url: "./detail?id=".concat(id) });
 
     },
     updateList: function updateList(i) {
       var sort = ['', 'hzp', 'wp', 'qt'];
-      this.setUnusedList(sort[i]);
+      this.getUnusedListBySort(sort[i]);
     } }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

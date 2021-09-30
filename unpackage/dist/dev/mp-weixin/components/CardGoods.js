@@ -114,7 +114,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PriceFormat = function PriceFormat() {__webpack_require__.e(/*! require.ensure | components/PriceFormat */ "components/PriceFormat").then((function () {return resolve(__webpack_require__(/*! @/components/PriceFormat.vue */ 123));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PriceFormat = function PriceFormat() {__webpack_require__.e(/*! require.ensure | components/PriceFormat */ "components/PriceFormat").then((function () {return resolve(__webpack_require__(/*! @/components/PriceFormat.vue */ 116));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -135,7 +137,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 {
   name: "GoodsCard",
-  components: { PriceFormat: PriceFormat } };exports.default = _default;
+  components: { PriceFormat: PriceFormat },
+  props: {
+    data: { type: Object, required: true } } };exports.default = _default;
 
 /***/ }),
 

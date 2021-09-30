@@ -1,7 +1,7 @@
 <template>
 <view class="cell">
 	<view class="column-center">
-		<i class="iconfont i-size" :class="icon"></i>
+		<i :class="'iconfont i-size icon-' +icon"></i>
 		<text class="ml-2">{{title}}</text>
 	</view>
 	<i class="iconfont icon-jiantou-you i-size"></i>

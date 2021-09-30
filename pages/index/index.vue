@@ -14,11 +14,8 @@
 	</view>
 	<view class="recommend">
 		<text class="recommend-title">推荐</text>
-		<card-goods>
-			<text class="column-center text-desc">浏览10086</text>
-		</card-goods>
-		<card-goods>
-			<text class="column-center text-desc">浏览10086</text>
+		<card-goods v-for="r in recommendList" :key="r._id" :data="r">
+			<text class="column-center text-desc">浏览{{r.reading}}</text>
 		</card-goods>
 	</view>
 </view>
@@ -27,6 +24,7 @@
 <script>
 import CardGoods from '@/components/CardGoods.vue'
 import { mapState } from 'vuex'
+
 export default {
 	components: { CardGoods },
 	data() {
@@ -44,10 +42,10 @@ export default {
 		}
 	},
 	onLoad() {
-		console.log(this.$store)
+		// console.log(this.$store)
 	},
 	computed: {
-		...mapState(['msg'])
+		...mapState(['recommendList'])
 	},
 	methods: {
 		toItemPage (index) {

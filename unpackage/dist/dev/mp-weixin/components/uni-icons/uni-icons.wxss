@@ -79,6 +79,14 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+.row-hidden-1.data-v-0bf90c00 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 /* flex常用布局 */
 .d-flex.data-v-0bf90c00 {
   display: -webkit-box;

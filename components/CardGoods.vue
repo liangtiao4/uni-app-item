@@ -1,14 +1,16 @@
 <template>
 <view class="goods-card">
-	<image src="../static/pro_item1.jpg" class="img mr-2"></image>
+	<view class="mr-2">
+		<image :src="data.img" class="img"/>
+	</view>
 	<view class="gc-desc">
 		<view class="column-between">
-			<text class="fs-2">标题标题</text>
-			<text class="mt-1 text-desc">这是一只海星</text>
+			<text class="fs-2">{{data.title}}</text>
+			<text class="mt-1 text-desc row-hidden-1">{{data.content}}</text>
 		</view>
 		<view class="row-between">
-			<price-format price="20" color="origin" />
-			<slot><text class="column-center text-desc">×1</text></slot>
+			<price-format :price="data.price" color="origin" />
+			<slot><text class="column-center text-desc">×{{data.count}}</text></slot>
 		</view>
 	</view>
 </view>
@@ -19,7 +21,10 @@ import PriceFormat from '@/components/PriceFormat.vue'
 
 export default {
 	name:"GoodsCard",
-	components: { PriceFormat }
+	components: { PriceFormat },
+	props: {
+		data: { type: Object, required: true }
+	}
 }
 </script>
 

@@ -5,7 +5,7 @@
 		v-for="g in list"
 		:key="g.id"
 	>
-		<i class='iconfont mb-2' :class='g.icon'></i>
+		<i :class='"iconfont mb-2 icon-" + g.icon'></i>
 		<text>{{g.name}}</text>
 	</view>
 </view>

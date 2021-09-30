@@ -3,6 +3,7 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "tab": "/components/Tab",
-    "card-unused": "/components/CardUnused"
+    "card-unused": "/components/CardUnused",
+    "nothing": "/components/Nothing"
   }
 }

@@ -1,8 +1,9 @@
 <template>
 <view class="card">
-	<view class="card-item" @click="toDetail"
+	<view class="card-item"
 		v-for="u in list"
 		:key="u._id"
+		@click="toDetail(u._id)"
 	>
 		<view class="card-item-top">
 			<text class="fs-3">{{u.title}}</text>
@@ -31,10 +32,7 @@ import PriceFormat from '@/components/PriceFormat.vue'
 export default {
 	name:"CardUnsed",
 	props: ['list', 'toDetail'],
-	components: { PriceFormat },
-	onLoad() {
-		console.log(this)
-	}
+	components: { PriceFormat }
 }
 </script>
 

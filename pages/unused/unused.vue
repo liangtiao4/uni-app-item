@@ -1,42 +1,42 @@
 <template>
 <view class="detail">
 	<view class="nd-tab">
-		<tab
-			:tablist="tabList"
-		  @updatelist="updateList"
-		/>
+		<tab :tablist="tabList" @updatelist="updateList"/>
 	</view>
-	<view class="used-item">
-		<card-unused
-			:list="unusedList"
-		  :toDetail='toUnusedDetail'/>
+	<view class="used-item" v-if="unusedList.length !== 0">
+		<card-unused :list="unusedList" :toDetail='toDetail'/>
 	</view>
+	<nothing v-else/>
 </view>
 </template>
 
 <script>
 import Tab from '@/components/Tab.vue'
 import CardUnused from '@/components/CardUnused.vue'
+import Nothing from '@/components/Nothing.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-	components: { Tab, CardUnused },
-	data() {
-		return { tabList: ['全部', '换妆品', '物品', '其他'] }
+	components: { Tab, CardUnused, Nothing },
+	data () {
+		return { tabList: ['全部', '换妆品', '物品', '其他'] }/*  */
 	},
 	computed: {
 		...mapState(['unusedList'])
 	},
+	mounted () {
+		this.getUnusedListBySort('')
+	},
 	methods: {
-		...mapMutations(['setUnusedList']),
-		toUnusedDetail () {
+		...mapMutations(['getUnusedListBySort']),
+		toDetail (id) {
 			uni.navigateTo({
-				url: './detail'
+				url: `./detail?id=${id}`
 			})
 		},
 		updateList (i) {
 			const sort = ['', 'hzp', 'wp', 'qt'];
-			this.setUnusedList(sort[i])
+			this.getUnusedListBySort(sort[i])
 		}
 	}
 }

@@ -31,14 +31,14 @@ export default {
 	data() {
 		return {
 			gridList: [
-				{ id: 1, name: '待付款', icon: 'icon-daifukuan' },
-				{ id: 2, name: '待发货', icon: 'icon-daifahuo' },
-				{ id: 3, name: '待收货', icon: 'icon-daishouhuo' }
+				{ id: 1, name: '待付款', icon: 'daifukuan' },
+				{ id: 2, name: '待发货', icon: 'daifahuo' },
+				{ id: 3, name: '待收货', icon: 'daishouhuo' }
 			],
 			myList: [
-				{ id: 1, name: '闲置', icon: 'icon-xianzhi' },
-				{ id: 2, name: '收藏', icon: 'icon-shoucang' },
-				{ id: 3, name: '联系客服', icon: 'icon-kefu' }
+				{ id: 1, name: '闲置', icon: 'xianzhi' },
+				{ id: 2, name: '收藏', icon: 'shoucang' },
+				{ id: 3, name: '联系客服', icon: 'kefu' }
 			]
 		}
 	},

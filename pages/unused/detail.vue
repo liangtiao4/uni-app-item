@@ -2,28 +2,23 @@
 <view class="unused-detail">
 	<view class="seller wrap-p column-center">
 		<image
-			src="../../static/pro_item1.jpg"
+			:src="unused.avatar"
 			class="img-avatar ia-sm mr-1" />
-		<text>两条4</text>
+		<text>{{unused.nickname}}</text>
 	</view>
 	<view class="unused-desc wrap-p">
-		<view class="fs-3 mb-2">海星标题</view>
-		<view class="mb-1">这是一只海星内容</view>
-		<view class="mb-1">交易方式：自提</view>
+		<view class="fs-3 mb-2">{{unused.title}}</view>
+		<view class="mb-1">{{unused.content}}</view>
+		<view class="mb-1">交易方式：{{unused.tradeMethod}}</view>
 		<view class="showimg">
 			<view class="mb-1 flex-row">
 				<text>实物展示:</text>
-				<view class="text-price">
-					<text class="price-symbol">￥</text>199.00
-				</view>
+				<price-format :price="unused.price" />
 			</view>
 			<image
-				src="../../static/pro_item3.jpg"
-				class="img-goods"
-				mode="widthFix"
-			/>
-			<image
-				src="../../static/pro_item3.jpg"
+				v-for="(item, i) in unused.imgs"
+				:key="i"
+				:src="item"
 				class="img-goods"
 				mode="widthFix"
 			/>
@@ -35,9 +30,21 @@
 
 <script>
 import GoodsAction from '@/components/GoodsAction.vue'
+import PriceFormat from '@/components/PriceFormat.vue'
+import { mapState, mapMutations } from 'vuex'
+
 export default {
 	name: 'detail',
-	components: { GoodsAction }
+	components: { GoodsAction, PriceFormat },
+	computed: {
+		...mapState(['unused'])
+	},
+	methods: {
+		...mapMutations(['getUnusedById'])
+	},
+	onLoad (options) {
+		this.getUnusedById(options.id)
+	}
 }
 </script>
 

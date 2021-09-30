@@ -97,6 +97,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.cartList, function(c, __i0__) {
+    var $orig = _vm.__get_orig(c)
+
+    var g0 = _vm.goods.includes(c.unused_id)
+    return {
+      $orig: $orig,
+      g0: g0
+    }
+  })
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -130,7 +148,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var CardGoods = function CardGoods() {__webpack_require__.e(/*! require.ensure | components/CardGoods */ "components/CardGoods").then((function () {return resolve(__webpack_require__(/*! @/components/CardGoods.vue */ 62));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var GoodsSubmit = function GoodsSubmit() {__webpack_require__.e(/*! require.ensure | components/GoodsSubmit */ "components/GoodsSubmit").then((function () {return resolve(__webpack_require__(/*! @/components/GoodsSubmit.vue */ 69));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -146,20 +164,35 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var CardGoods = function CardGoods() {__webpack_require__.e(/*! require.ensure | components/CardGoods */ "components/CardGoods").then((function () {return resolve(__webpack_require__(/*! @/components/CardGoods.vue */ 62));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var GoodsSubmit = function GoodsSubmit() {__webpack_require__.e(/*! require.ensure | components/GoodsSubmit */ "components/GoodsSubmit").then((function () {return resolve(__webpack_require__(/*! @/components/GoodsSubmit.vue */ 69));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
+  components: { CardGoods: CardGoods, GoodsSubmit: GoodsSubmit },
   data: function data() {
     return {
+      isAll: false,
       goods: [] };
 
   },
-  components: { CardGoods: CardGoods, GoodsSubmit: GoodsSubmit },
-  onLoad: function onLoad(options) {
-    console.log('options', options);
-  },
+  computed: _objectSpread({}, (0, _vuex.mapState)(['cartList'])),
   methods: {
-    handleGoods: function handleGoods(ev) {
-      console.log(ev);
+    getGoods: function getGoods(ev) {
+      // 判断是否全选
+      var selectGoods = ev.detail.value;
+      this.goods = selectGoods;
+      this.isAll = selectGoods.length === this.cartList.length;
+    },
+    setIsAll: function setIsAll(flag) {
+      this.isAll = flag;
+      var list = [];
+      if (flag) {
+        this.cartList.forEach(function (item) {return list.push(item.unused_id);});
+      }
+      this.goods = list;
     } } };exports.default = _default;
 
 /***/ }),
