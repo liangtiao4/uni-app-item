@@ -876,7 +876,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -3214,13 +3214,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
 // 闲置状态管理
 var unused = {
   state: function state() {return {
       unusedList: _data.unusedList, // 闲置列表
       unused: {}, // 闲置详情
       cartList: _data.cartList, // 购物车列表
-      recommendList: _data.recommendList // 推荐列表
+      recommendList: _data.recommendList, // 推荐列表
+      myOrder: _data.myOrder // 我的订单
     };},
   mutations: {
     // 获取分类后的闲置列表
@@ -3246,6 +3248,16 @@ var unused = {
     // 购物车全选
     selectAllUnused: function selectAllUnused(_ref2, flag) {var cartList = _ref2.cartList;
       cartList.map(function (item) {return item.isCheck = flag;});
+    },
+    // 获取分类后我的订单
+    getMyOrderBySort: function getMyOrderBySort(state, code) {
+      var list = _data.myOrder;
+      if (code) {
+        console.log('code', code, typeof code);
+        list = _data.myOrder.filter(function (item) {return item.state_code === Number(code);});
+        console.log(list);
+      }
+      state.myOrder = list;
     } },
 
   getters: {
@@ -3416,7 +3428,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.recommendList = exports.cartList = exports.unusedList = void 0;var unusedList = [
+Object.defineProperty(exports, "__esModule", { value: true });exports.myOrder = exports.recommendList = exports.cartList = exports.unusedList = void 0;var unusedList = [
 {
   _id: 'unu001',
   nickname: '派大星',
@@ -3488,6 +3500,27 @@ var recommendList = [
   price: 18,
   reading: 500,
   unused_id: 'unu087' }];exports.recommendList = recommendList;
+
+
+
+var myOrder = [
+{
+  _id: 'order943',
+  user_id: 'daimao007',
+  seller_id: 'shandi110',
+  seller_avatar: '/static/avatar/018.jpg',
+  seller_nickname: '派大星',
+  title: '标题',
+  content: '这是内容内容内容内容内容内容内容内容',
+  img: '/static/avatar/004.jpg',
+  price: 199,
+  discount: 12,
+  count: 1,
+  // reading: 500,
+  unused_id: 'unu073',
+  // 1 代付款，2 待发货，3 待收货，4 已收货
+  state_code: 1,
+  state_desc: '代付款' }];exports.myOrder = myOrder;
 
 /***/ }),
 
@@ -9018,7 +9051,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9039,14 +9072,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9132,7 +9165,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));

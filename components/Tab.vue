@@ -24,7 +24,8 @@ export default {
 			type: 'default-active' | 'state-active',
 			required: true,
 			default: 'default-active'
-		}
+		},
+		tabIndex: { type: Number }
 	},
 	data() { return { cIndex: 0 } },
 	methods: {
@@ -32,6 +33,9 @@ export default {
 			this.cIndex = i
 			this.$emit('updatelist', i)
 		}
+	},
+	mounted() {
+		this.cIndex = this.tabIndex
 	}
 }
 </script>

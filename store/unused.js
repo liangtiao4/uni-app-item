@@ -1,7 +1,8 @@
 import {
 	unusedList,
 	cartList,
-	recommendList
+	recommendList,
+	myOrder
 } from './data.js'
 
 // 闲置状态管理
@@ -10,7 +11,8 @@ const unused = {
 		unusedList, // 闲置列表
 		unused: {}, // 闲置详情
 		cartList, // 购物车列表
-		recommendList // 推荐列表
+		recommendList, // 推荐列表
+		myOrder // 我的订单
 	}),
 	mutations: {
 		// 获取分类后的闲置列表
@@ -36,6 +38,16 @@ const unused = {
 		// 购物车全选
 		selectAllUnused ({ cartList }, flag) {
 			cartList.map(item => item.isCheck = flag)
+		},
+		// 获取分类后我的订单
+		getMyOrderBySort (state, code) {
+			let list = myOrder
+			if (code) {
+				console.log('code', code, typeof code)
+				list = myOrder.filter(item => item.state_code === Number(code))
+				console.log(list)
+			}
+			state.myOrder = list
 		}
 	},
 	getters: {

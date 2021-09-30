@@ -61,6 +61,10 @@
   font-size: 26rpx;
   color: #727273;
 }
+.text-oringin.data-v-9d13dc7c {
+  font-size: 26rpx;
+  color: #ff8917;
+}
 .text-title.data-v-9d13dc7c {
   display: block;
   font-size: 36rpx;

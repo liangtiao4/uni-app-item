@@ -139,15 +139,20 @@ var _default =
     tabactive: {
       type: 'default-active' | 'state-active',
       required: true,
-      default: 'default-active' } },
+      default: 'default-active' },
 
+    tabIndex: { type: Number } },
 
   data: function data() {return { cIndex: 0 };},
   methods: {
     changeTab: function changeTab(i) {
       this.cIndex = i;
       this.$emit('updatelist', i);
-    } } };exports.default = _default;
+    } },
+
+  mounted: function mounted() {
+    this.cIndex = this.tabIndex;
+  } };exports.default = _default;
 
 /***/ }),
 

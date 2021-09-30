@@ -1,9 +1,10 @@
 <template>
-<view class="grid column-center" @click="$emit('toOrderPage')">
+<view class="grid column-center">
 	<view
 		class="grid-item"
-		v-for="g in list"
+		v-for="(g, i) in list"
 		:key="g.id"
+		@click="$emit('toOrderPage', i + 1)"
 	>
 		<i :class='"iconfont mb-2 icon-" + g.icon'></i>
 		<text>{{g.name}}</text>

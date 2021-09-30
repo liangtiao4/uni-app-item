@@ -2,35 +2,37 @@
 <view class="card" @click="toDetail">
 	<view class="card-top">
 		<view class="column-center">
-			<image src="../static/pro_item2.jpg"
-				class="img-avatar ia-ssm"></image>
-			<text class="fs-3">卖家</text>
+			<image :src="o.seller_avatar" class="img-avatar ia-ssm"/>
+			<text class="fs-3">{{o.seller_nickname}}</text>
 		</view>
-		<view class="text-price">待付款</view>
+		<view class="text-oringin row-hidden-2">{{o.state_desc}}</view>
 	</view>
 	<view class="card-middle">
-		<image src="../static/pro_item2.jpg" class="img mr-2"></image>
+		<view>
+			<image :src="o.img" class="img mr-2"/>
+		</view>
 		<view class="card-desc">
 			<view class="card-desc-info">
-				<text class="mb-1">标题</text>
-				<text class="text-desc">这是内容内容内容内容内容</text>
+				<text class="mb-1">{{o.title}}</text>
+				<text class="text-desc">{{o.content}}</text>
 			</view>
 			<view class="card-desc-price">
-				<price-format price='199' class="mb-1"/>
-				<text class="text-desc">x1</text>
+				<price-format :price='o.price' class="mb-1"/>
+				<text class="text-desc">x{{o.count}}</text>
 			</view>
 		</view>
 	</view>
 	<view class="total-price">
-		<price-format title="总价" price='199' color="grey" class="mr-2"/>
-		<price-format title="实付款" price='123'/>
+		<price-format title="优惠" :price='o.discount' color="grey" class="mr-2"/>
+		<price-format title="实付款" :price='o.price - o.discount'/>
 	</view>
 	<view class="card-bottom">
-		<view class="text-desc fs-2">更多</view>
-		<view class="card-btns">
+		<view class="text-desc fs-2" @click="handleMore">更多</view>
+		<slot></slot>
+		<!-- <view class="card-btns">
 			<view class="btn btn-default">取消订单</view>
 			<view class="btn btn-default">删除订单</view>
-		</view>
+		</view> -->
 	</view>
 </view>
 </template>
@@ -40,8 +42,13 @@ import PriceFormat from './PriceFormat.vue'
 
 export default {
 	name:"CardOrder",
-	props: ['toDetail'],
-	components: { PriceFormat }
+	props: ['toDetail', 'o'],
+	components: { PriceFormat },
+	methods: {
+		handleMore () { 
+			uni.showToast({ title: '无更多逻辑', icon: 'none' })
+		}
+	}
 }
 </script>
 

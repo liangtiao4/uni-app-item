@@ -72,3 +72,24 @@ export const recommendList = [
 		unused_id: 'unu087'
 	}
 ]
+
+export const myOrder = [
+	{
+		_id: 'order943',
+		user_id: 'daimao007',
+		seller_id: 'shandi110',
+		seller_avatar: '/static/avatar/018.jpg',
+		seller_nickname: '派大星',
+		title: '标题',
+		content: '这是内容内容内容内容内容内容内容内容',
+		img: '/static/avatar/004.jpg',
+		price: 199,
+		discount: 12,
+		count: 1,
+		// reading: 500,
+		unused_id: 'unu073',
+		// 1 代付款，2 待发货，3 待收货，4 已收货
+		state_code: 1,
+		state_desc: '代付款'
+	}
+]

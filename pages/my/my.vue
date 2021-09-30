@@ -43,8 +43,8 @@ export default {
 		}
 	},
 	methods: {
-		toOrder () {
-			uni.navigateTo({ url: './orderState' }) 
+		toOrder (code) {
+			uni.navigateTo({ url: `./orderState?code=${code}` }) 
 		}
 	}
 }

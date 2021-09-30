@@ -1,6 +1,5 @@
 {
-  "navigationBarTitleText": "我的",
-  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "首页",
   "usingComponents": {
     "grid": "/components/Grid",
     "cell": "/components/Cell"
