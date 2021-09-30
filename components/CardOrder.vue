@@ -28,11 +28,17 @@
 	</view>
 	<view class="card-bottom">
 		<view class="text-desc fs-2" @click="handleMore">更多</view>
-		<slot></slot>
-		<!-- <view class="card-btns">
-			<view class="btn btn-default">取消订单</view>
-			<view class="btn btn-default">删除订单</view>
-		</view> -->
+		<!-- <slot></slot> -->
+		<!-- 1待付款 -->
+		<view class="card-btns" v-if="o.state_code === 1">
+			<view class="btn-sm btn-origin">去付款</view>
+			<view class="btn-sm btn-default">取消订单</view>
+		</view>
+		<!-- 2待发货 | 3待收货 | 4已收货 -->
+		<view class="card-btns" v-else>
+			<view class="btn-sm btn-default">申请退款</view>
+			<view class="btn-sm btn-default" v-if="o.state_code === 4">申请退款</view>
+		</view>
 	</view>
 </view>
 </template>

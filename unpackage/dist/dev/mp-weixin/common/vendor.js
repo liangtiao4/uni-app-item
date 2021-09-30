@@ -876,7 +876,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2065,7 +2065,7 @@ function normalizeComponent (
 
 /***/ 11:
 /*!************************************************!*\
-  !*** D:/git_store/uni-app-item/store/index.js ***!
+  !*** D:/git-store/uni-app-item/store/index.js ***!
   \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3202,7 +3202,7 @@ var index = {
 
 /***/ 13:
 /*!*************************************************!*\
-  !*** D:/git_store/uni-app-item/store/unused.js ***!
+  !*** D:/git-store/uni-app-item/store/unused.js ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3253,9 +3253,7 @@ var unused = {
     getMyOrderBySort: function getMyOrderBySort(state, code) {
       var list = _data.myOrder;
       if (code) {
-        console.log('code', code, typeof code);
         list = _data.myOrder.filter(function (item) {return item.state_code === Number(code);});
-        console.log(list);
       }
       state.myOrder = list;
     } },
@@ -3280,7 +3278,7 @@ unused;exports.default = _default;
 
 /***/ 136:
 /*!***************************************************************!*\
-  !*** D:/git_store/uni-app-item/components/uni-icons/icons.js ***!
+  !*** D:/git-store/uni-app-item/components/uni-icons/icons.js ***!
   \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3422,7 +3420,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ 14:
 /*!***********************************************!*\
-  !*** D:/git_store/uni-app-item/store/data.js ***!
+  !*** D:/git-store/uni-app-item/store/data.js ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3518,7 +3516,7 @@ var myOrder = [
   count: 1,
   // reading: 500,
   unused_id: 'unu073',
-  // 1 代付款，2 待发货，3 待收货，4 已收货
+  // 1 待付款，2 待发货，3 待收货，4 已收货
   state_code: 1,
   state_desc: '代付款' }];exports.myOrder = myOrder;
 
@@ -9051,7 +9049,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9072,14 +9070,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9165,7 +9163,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"uniDai","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9606,7 +9604,7 @@ module.exports = g;
 
 /***/ 4:
 /*!********************************************!*\
-  !*** D:/git_store/uni-app-item/pages.json ***!
+  !*** D:/git-store/uni-app-item/pages.json ***!
   \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {

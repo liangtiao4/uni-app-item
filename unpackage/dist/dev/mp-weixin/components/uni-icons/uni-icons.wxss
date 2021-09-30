@@ -199,12 +199,12 @@
 }
 /* 按钮 */
 .btn.data-v-0bf90c00 {
+  border-radius: 40px;
+  text-align: center;
+  padding: 6rpx;
   width: 80px;
   height: 30px;
-  text-align: center;
   line-height: 30px;
-  border-radius: 40px;
-  padding: 6rpx;
   font-size: 34rpx;
   color: #FFFFFF;
 }
@@ -221,13 +221,22 @@
   background-color: #ff4925;
   padding-right: 24rpx;
 }
-.btn-default.data-v-0bf90c00 {
+.btn-sm.data-v-0bf90c00 {
+  border-radius: 40px;
+  text-align: center;
+  padding: 6rpx;
   width: 75px;
   height: 24px;
   line-height: 24px;
   font-size: 34rpx;
-  color: #333333;
   border: 1rpx solid #edecf0;
+}
+.btn-default.data-v-0bf90c00 {
+  color: #333333;
+}
+.btn-origin.data-v-0bf90c00 {
+  background-color: #ff8917;
+  color: #FFFFFF;
 }
 /* 图片 */
 .img.data-v-0bf90c00 {

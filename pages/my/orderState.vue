@@ -1,12 +1,16 @@
 <template>
 <view class="order-state">
-	<tab :tablist="tablist" tabactive="state-active" :tabIndex='tabIndex' />
+	<tab
+		:tablist="tablist"
+		tabactive="state-active"
+		:tabIndex='tabIndex'
+		@updatelist='getMyOrderBySort'
+	/>
 	<view v-if="o.length !== 0">
 		<card-order
 			v-for="item in o"
 			:key='item._id'
 			:o='item'
-			@updatelist='getMyOrderBySort'
 		/>
 	</view>
 	<nothing v-else/>

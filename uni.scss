@@ -193,13 +193,16 @@ $spcing-slg: 44rpx;
 }
 
 /* 按钮 */
+@mixin btn-general {
+	border-radius: 40px;
+	text-align: center;
+	padding: $spcing-ssm;
+}
 .btn {
+	@include btn-general;
 	width: 80px;
 	height: 30px;
-	text-align: center;
 	line-height: 30px;
-	border-radius: 40px;
-	padding: $spcing-ssm;
 	font-size: $font-size-normal;
 	color: #FFFFFF;
 }
@@ -216,13 +219,20 @@ $spcing-slg: 44rpx;
 	background-color: $color-red;
 	padding-right: $spcing-normal;
 }
-.btn-default {
+.btn-sm {
+	@include btn-general;
 	width: 75px;
 	height: 24px;
 	line-height: 24px;
 	font-size: $font-size-normal;
-	color: $color-default;
 	border: 1rpx solid $b-color;
+}
+.btn-default {
+	color: $color-default;
+}
+.btn-origin {
+	background-color: $color-orange;
+	color: #FFFFFF;
 }
 
 /* 图片 */

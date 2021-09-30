@@ -43,9 +43,7 @@ const unused = {
 		getMyOrderBySort (state, code) {
 			let list = myOrder
 			if (code) {
-				console.log('code', code, typeof code)
 				list = myOrder.filter(item => item.state_code === Number(code))
-				console.log(list)
 			}
 			state.myOrder = list
 		}

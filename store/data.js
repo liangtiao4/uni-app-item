@@ -88,7 +88,7 @@ export const myOrder = [
 		count: 1,
 		// reading: 500,
 		unused_id: 'unu073',
-		// 1 代付款，2 待发货，3 待收货，4 已收货
+		// 1 待付款，2 待发货，3 待收货，4 已收货
 		state_code: 1,
 		state_desc: '代付款'
 	}
