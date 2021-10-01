@@ -2,7 +2,7 @@
 @font-face {
   font-family: "iconfont";
   /* Project id 2788829 */
-  src: url("//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.woff2?t=1632815295109") format("woff2"), url("//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.woff?t=1632815295109") format("woff"), url("//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.ttf?t=1632815295109") format("truetype"), url("//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.svg?t=1632815295109#iconfont") format("svg");
+  src: url("//at.alicdn.com/t/font_2788829_su0qnzccvgq.woff2?t=1633017481592") format("woff2"), url("//at.alicdn.com/t/font_2788829_su0qnzccvgq.woff?t=1633017481592") format("woff"), url("//at.alicdn.com/t/font_2788829_su0qnzccvgq.ttf?t=1633017481592") format("truetype"), url("//at.alicdn.com/t/font_2788829_su0qnzccvgq.svg?t=1633017481592#iconfont") format("svg");
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -10,6 +10,9 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-address:before {
+  content: "\e65e";
 }
 .icon-nothing:before {
   content: "\e60b";
@@ -43,6 +46,9 @@
 }
 /* 背景颜色 */
 /* 字体颜色 */
+.text-grey {
+  color: #787878;
+}
 /* 边框颜色 */
 /* 文字尺寸 */
 .fs-0 {
@@ -51,7 +57,7 @@
 .fs-1 {
   font-size: 28rpx;
 }
-.fs-2, .card-desc {
+.fs-2, .card-desc, .card-bottom {
   font-size: 34rpx;
 }
 .fs-3 {
@@ -92,12 +98,12 @@
   -webkit-box-orient: vertical;
 }
 /* flex常用布局 */
-.d-flex, .card-desc {
+.d-flex, .card-desc, .card-bottom > .card-btns {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.row-between {
+.row-between, .card-bottom {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -168,8 +174,11 @@
 .mb-2 {
   margin-bottom: 20rpx;
 }
-.mt-1 {
+.mt-1, .card-bottom {
   margin-top: 12rpx;
+}
+.p {
+  padding: 24rpx;
 }
 .wrap-p {
   padding: 12rpx 30rpx;
@@ -283,5 +292,16 @@
 }
 .card-desc-price {
   text-align: right;
+}
+.total-price {
+  text-align: right;
+}
+.card-bottom {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.card-bottom > .card-btns view {
+  margin-left: 24rpx;
 }
 

@@ -1,17 +1,22 @@
 <template>
-<view class="cart-footer fixed-b">
-	<label class="column-center">
-		<radio
-			value="all"
-			color="#328ee3"
-			:checked="isAll"
-			@click="selectAllUnused(!isAll)"
-		/>
-		<text>全选</text>
-	</label>
+<view class="fixed-b">
+	<view class="select-all-wrap">
+		<label class="column-center" v-if="showAll">
+			<radio
+				value="all"
+				color="#328ee3"
+				:checked="isAll"
+				@click="selectAll(!isAll)"
+			/>
+			<text>全选</text>
+		</label>
+	</view>
 	<view class="column-center">
-		<price-format title="总计" :price="totalPrice" />
-		<view class="btn btn-submit ml-2" @click="settlement">结算</view>
+		<text class="text-desc mr-1" v-if="count">共{{count}}件，</text>
+		<price-format title="合计" :price="price" />
+		<view class="btn btn-submit ml-2" @click="submit(price)">
+			{{btnText}}
+		</view>
 	</view>
 </view>
 </template>
@@ -23,14 +28,19 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
 	name:"GoodsSubmit",
 	components: { PriceFormat },
-	computed: {
-		...mapGetters(['isAll', 'totalPrice']),
-	},
-	methods: {
-		...mapMutations(['selectAllUnused']),
-		settlement () {
-			uni.showToast({ title: '暂无结算逻辑', icon: 'none' })
-		}
+	props: {
+		// 是否显示全选按钮, 默认为否
+		showAll: { type: Boolean, default: false },
+		isAll: { type: Boolean, default: true },
+		selectAll: { type: Function },
+		// 数量，默认为0
+		count: { type: Number, default: 0 },
+		// 价钱
+		price: { type: Number, default: 0 },
+		// 按钮文本
+		btnText: { type: String, default: '结算' },
+		// 按钮事件
+		submit: { type: Function }
 	}
 }
 </script>

@@ -55,6 +55,12 @@ const unused = {
 				return item.isCheck ?  total + item.count * item.price : total
 			}, 0)
 		},
+		// 购物车选中总数量
+		totalCount ({ cartList }) {
+			return cartList.reduce((total, item) => {
+				return item.isCheck ?  total + item.count : total
+			}, 0)
+		},
 		// 购物车全选
 		isAll ({ cartList }) {
 			return cartList.every(item => item.isCheck)

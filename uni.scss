@@ -1,9 +1,9 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2788829 */
-  src: url('//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.woff2?t=1632815295109') format('woff2'),
-       url('//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.woff?t=1632815295109') format('woff'),
-       url('//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.ttf?t=1632815295109') format('truetype'),
-       url('//at.alicdn.com/t/font_2788829_v5cl4mw1p6c.svg?t=1632815295109#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_2788829_su0qnzccvgq.woff2?t=1633017481592') format('woff2'),
+       url('//at.alicdn.com/t/font_2788829_su0qnzccvgq.woff?t=1633017481592') format('woff'),
+       url('//at.alicdn.com/t/font_2788829_su0qnzccvgq.ttf?t=1633017481592') format('truetype'),
+       url('//at.alicdn.com/t/font_2788829_su0qnzccvgq.svg?t=1633017481592#iconfont') format('svg');
 }
 
 .iconfont {
@@ -12,6 +12,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-address:before {
+  content: "\e65e";
 }
 
 .icon-nothing:before {
@@ -55,6 +59,7 @@
 }
 
 
+
 /* 背景颜色 */
 $bg-color: #fff;
 $bg-color-grey: #f8f8f8; // 灰色
@@ -65,6 +70,7 @@ $color-grey: #787878;
 $color-commond: #8f4b2e;
 $color-red: #ff4925;
 $color-orange: #ff8917;
+.text-grey { color: $color-grey; }
 
 /* 边框颜色 */
 $b-color: #edecf0;
@@ -166,6 +172,7 @@ $spcing-slg: 44rpx;
 .mb-1 { margin-bottom: 10rpx; }
 .mb-2 { margin-bottom: 20rpx; }
 .mt-1 { margin-top: 12rpx; }
+.p { padding: $spcing-normal; }
 .wrap-p {
 	padding: $spcing-sm $spcing-lg;
 }

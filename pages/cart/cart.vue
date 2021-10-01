@@ -15,22 +15,38 @@
 			<card-goods class="flex-grow-1" :data='c' />
 		</view>
 	</view>
-	<goods-submit />
+	<goods-submit
+		:showAll="true"
+		:showCount="false"
+		:price="totalPrice"
+		:isAll="isAll"
+		:selectAll="selectAllUnused"
+		:submit="toPayment"
+	/>
 </view>
 </template>
 
 <script>
 import CardGoods from '@/components/CardGoods.vue'
 import GoodsSubmit from '@/components/GoodsSubmit.vue'
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 
 export default {
 	components: { CardGoods, GoodsSubmit },
-	computed: { 
-		...mapState({ cartList: state => state.u.cartList })
+	computed: {
+		...mapState({ cartList: state => state.u.cartList }),
+		...mapGetters(['isAll', 'totalPrice'])
 	},
 	methods: {
-		...mapMutations(['checkUnused'])
+		...mapMutations(['checkUnused', 'selectAllUnused']),
+		toPayment (flag) {
+			// 判断是否选择商品
+			if (flag) {
+				uni.navigateTo({ url: `./payment?from=cart` })
+			} else {
+				uni.showToast({ title: '请先选择商品！', icon: 'none' })
+			}
+		}
 	}
 }
 </script>

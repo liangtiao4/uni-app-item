@@ -32,23 +32,35 @@ export const unusedList = [
 export const cartList = [
 	{
 		_id: 'cart009',
+		user_id: 'daimao007',
+		seller_id: 'shandi110',
+		seller_avatar: '/static/avatar/017.jpg',
+		seller_nickname: '在逃南瓜车',
 		title: '一只海绵宝宝',
 		content: '海绵BOO宝公仔毛绒玩具抱枕玩偶压床布娃娃',
 		img: '/static/avatar/001.jpg',
 		price: 59,
 		count: 1,
 		unused_id: 'unu555',
-		isCheck: true
+		isCheck: true,
+		tradeMethod: '自提',
+		service: '7天无理由退款'
 	},
 	{
 		_id: 'cart010',
+		user_id: 'daimao007',
+		seller_id: 'shandi110',
+		seller_avatar: '/static/avatar/018.jpg',
+		seller_nickname: '哈迪斯',
 		title: '珊迪·奇克斯',
 		content: '珊迪·奇克斯是来自美国南部的德克萨斯州的雌性松鼠，身兼科学家、探险家和发明家',
 		img: '/static/avatar/004.jpg',
 		price: 99,
 		count: 2,
 		unused_id: 'unu333',
-		isCheck: true
+		isCheck: true,
+		tradeMethod: '中通快递',
+		service: '7天无理由退款'
 	}
 ]
 
@@ -87,6 +99,8 @@ export const myOrder = [
 		discount: 12,
 		count: 1,
 		// reading: 500,
+		tradeMethod: '中通快递',
+		service: '7天无理由退款',
 		unused_id: 'unu073',
 		// 1 待付款，2 待发货，3 待收货，4 已收货
 		state_code: 1,

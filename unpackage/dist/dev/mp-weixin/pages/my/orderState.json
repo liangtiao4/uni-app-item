@@ -1,8 +1,9 @@
 {
-  "navigationBarTitleText": "订单状态",
+  "navigationBarTitleText": "首页",
   "usingComponents": {
     "tab": "/components/Tab",
     "card-order": "/components/CardOrder",
-    "nothing": "/components/Nothing"
+    "nothing": "/components/Nothing",
+    "price-format": "/components/PriceFormat"
   }
 }

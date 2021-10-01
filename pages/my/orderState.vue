@@ -11,7 +11,25 @@
 			v-for="item in o"
 			:key='item._id'
 			:o='item'
-		/>
+		>
+			<view class="total-price">
+				<price-format title="优惠" :price='item.discount' color="grey" class="mr-2"/>
+				<price-format title="实付款" :price='item.price - item.discount'/>
+			</view>
+			<view class="card-bottom">
+				<view class="text-desc fs-2" @click="handleMore">更多</view>
+				<!-- 1待付款 -->
+				<view class="card-btns" v-if="item.state_code === 1">
+					<view class="btn-sm btn-origin" @click="onPay(item._id)">去付款</view>
+					<view class="btn-sm btn-default">取消订单</view>
+				</view>
+				<!-- 2待发货 | 3待收货 | 4已收货 -->
+				<view class="card-btns" v-else>
+					<view class="btn-sm btn-default">申请退款</view>
+					<view class="btn-sm btn-default" v-if="item.state_code === 4">申请退款</view>
+				</view>
+			</view>
+		</card-order>
 	</view>
 	<nothing v-else/>
 </view>
@@ -21,11 +39,12 @@
 import Tab from '@/components/Tab.vue'
 import CardOrder from '@/components/CardOrder.vue'
 import Nothing from '@/components/Nothing.vue'
+import PriceFormat from '@/components/PriceFormat.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
 	name: 'order-state',
-	components: { Tab, CardOrder, Nothing },
+	components: { Tab, CardOrder, Nothing, PriceFormat },
 	data() {
 		return {
 			tablist: ['全部', '待付款', '待发货', '待取货'],
@@ -36,7 +55,12 @@ export default {
 		...mapState({ o: state => state.u.myOrder })
 	},
 	methods: {
-		...mapMutations(['getMyOrderBySort'])
+		...mapMutations(['getMyOrderBySort']),
+		onPay (id) {
+			uni.navigateTo({
+				url:  `../cart/payment?from=order&id=${id}`
+			})
+		}
 	},
 	onLoad (options) {
 		// 获取选项卡当前下标
@@ -65,7 +89,13 @@ export default {
 	}
 	&-price { text-align: right; }
 }
-.c-info {
-	// @extend 
+.total-price { text-align: right; }
+.card-bottom {
+	@extend .row-between, .fs-2, .mt-1;
+	align-items: center;
+	& > .card-btns {
+		@extend .d-flex;
+		view { margin-left: $spcing-normal; }
+	}
 }
 </style>

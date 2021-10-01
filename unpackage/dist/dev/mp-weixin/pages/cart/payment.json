@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "确认订单",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "card-address": "/components/CardAddress",
+    "card-order": "/components/CardOrder",
+    "goods-submit": "/components/GoodsSubmit",
+    "price-format": "/components/PriceFormat"
+  }
+}

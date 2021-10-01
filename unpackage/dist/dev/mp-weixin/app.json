@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/my/my",
+    "pages/my/orderState",
     "pages/cart/cart",
-    "pages/index/index",
+    "pages/my/my",
     "pages/unused/unused",
     "pages/unused/detail",
-    "pages/my/orderState"
+    "pages/index/index",
+    "pages/cart/payment"
   ],
   "subPackages": [],
   "window": {
