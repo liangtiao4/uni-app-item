@@ -1,8 +1,7 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			// "path": "pages/index/index",
-			"path": "pages/my/orderState",
+			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页"
 			}
@@ -39,8 +38,7 @@
 			}
 		},
 		{
-			// "path": "pages/my/orderState",
-			"path": "pages/index/index",
+			"path": "pages/my/orderState",
 			"style": {
 				"navigationBarTitleText": "订单状态"
 			}
@@ -53,7 +51,16 @@
 				"enablePullDownRefresh": false
 			}
 		}
-  ],
+      ,{
+            "path" : "pages/unused/release",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"tabBar": {
 		"selectedColor":"#2c2c2c",
 		"color":"#2c2c2c",

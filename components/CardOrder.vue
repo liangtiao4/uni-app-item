@@ -1,24 +1,24 @@
 <template>
-<view class="card" @click="toDetail">
+<view class="card">
 	<view class="card-top">
 		<view class="column-center">
-			<image :src="o.seller_avatar" class="img-avatar ia-ssm"/>
-			<text class="fs-3">{{o.seller_nickname}}</text>
+			<image :src="data.seller_avatar" class="img-avatar ia-ssm"/>
+			<text class="fs-3">{{data.seller}}</text>
 		</view>
-		<view class="text-oringin row-hidden-2">{{o.state_desc}}</view>
+		<view class="text-oringin row-hidden-2">{{data.state_desc}}</view>
 	</view>
-	<view class="card-middle">
+	<view class="card-middle" @click="click(data.unused_id)">
 		<view>
-			<image :src="o.img" class="img mr-2"/>
+			<image :src="data.img" class="img mr-2"/>
 		</view>
 		<view class="h-180 row-between">
 			<view class="flex-grow-1 mr-2">
-				<text class="mb-1">{{o.title}}</text>
-				<text class="text-desc row-hidden-2">{{o.content}}</text>
+				<text class="mb-1">{{data.title}}</text>
+				<text class="text-desc row-hidden-2">{{data.content}}</text>
 			</view>
 			<view style="text-align: right;">
-				<price-format :price='o.price' class="mb-1"/>
-				<text class="text-desc">x{{o.count}}</text>
+				<price-format :price='data.price' class="mb-1"/>
+				<text class="text-desc">x{{data.count}}</text>
 			</view>
 		</view>
 	</view>
@@ -31,7 +31,10 @@ import PriceFormat from './PriceFormat.vue'
 
 export default {
 	name:"CardOrder",
-	props: ['toDetail', 'o'],
+	props: {
+		data : { type: Object, required: true },
+		click: { type: Function }
+	},
 	components: { PriceFormat }
 }
 </script>

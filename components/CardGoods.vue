@@ -1,5 +1,5 @@
 <template>
-<view class="goods-card" @click="$emit('todetail')">
+<view class="goods-card" @click="click(data.unused_id)">
 	<view class="mr-2">
 		<image :src="data.img" class="img"/>
 	</view>
@@ -23,7 +23,8 @@ export default {
 	name:"GoodsCard",
 	components: { PriceFormat },
 	props: {
-		data: { type: Object, required: true }
+		data: { type: Object, required: true },
+		click: { type: Function }
 	}
 }
 </script>

@@ -12,7 +12,11 @@
 				:checked="c.isCheck"
 				@click="checkUnused(c._id)"
 			/>
-			<card-goods class="flex-grow-1" :data='c' />
+			<card-goods
+				class="flex-grow-1"
+				:data='c'
+				:click="toDetail"
+			/>
 		</view>
 	</view>
 	<goods-submit
@@ -46,6 +50,10 @@ export default {
 			} else {
 				uni.showToast({ title: '请先选择商品！', icon: 'none' })
 			}
+		},
+		// 跳转到物品详情
+		toDetail (id) {
+			uni.navigateTo({ url: `../unused/detail?id=${id}` })
 		}
 	}
 }

@@ -18,7 +18,7 @@ export default {
 .nothing {
 	@extend .center-column;
 	color: $color-grey;
-	margin-top: 50rpx;
+	margin-top: 150rpx;
 	.size {
 		font-size: 240rpx;
 		margin-bottom: $spcing-normal;

@@ -47,9 +47,16 @@ export default {
 <style lang="scss">
 .detail {
 	.nd-tab {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
 		background-color: $bg-color;
 		padding-top: $spcing-normal;
+		border-bottom: 1rpx solid $b-color;
 	}
-	.used-item { padding: $spcing-lg; }
+	.used-item {
+		padding: 100rpx $spcing-lg $spcing-normal;
+	}
 }
 </style>

@@ -10,7 +10,8 @@
 		<card-order
 			v-for="item in o"
 			:key='item._id'
-			:o='item'
+			:data="item"
+			:click="toDetail"
 		>
 			<view class="total-price">
 				<price-format title="优惠" :price='item.discount' color="grey" class="mr-2"/>
@@ -59,6 +60,11 @@ export default {
 		onPay (id) {
 			uni.navigateTo({
 				url:  `../cart/payment?from=order&id=${id}`
+			})
+		},
+		toDetail (id) {
+			uni.navigateTo({
+				url: `../unused/detail?id=${id}`
 			})
 		}
 	},

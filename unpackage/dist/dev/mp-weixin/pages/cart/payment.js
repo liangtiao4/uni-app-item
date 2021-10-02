@@ -168,7 +168,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var CardAddress = function CardAddress() {__webpack_require__.e(/*! require.ensure | components/CardAddress */ "components/CardAddress").then((function () {return resolve(__webpack_require__(/*! @/components/CardAddress.vue */ 139));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CardOrder = function CardOrder() {__webpack_require__.e(/*! require.ensure | components/CardOrder */ "components/CardOrder").then((function () {return resolve(__webpack_require__(/*! @/components/CardOrder.vue */ 132));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var GoodsSubmit = function GoodsSubmit() {__webpack_require__.e(/*! require.ensure | components/GoodsSubmit */ "components/GoodsSubmit").then((function () {return resolve(__webpack_require__(/*! @/components/GoodsSubmit.vue */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var PriceFormat = function PriceFormat() {__webpack_require__.e(/*! require.ensure | components/PriceFormat */ "components/PriceFormat").then((function () {return resolve(__webpack_require__(/*! @/components/PriceFormat.vue */ 125));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var CardAddress = function CardAddress() {__webpack_require__.e(/*! require.ensure | components/CardAddress */ "components/CardAddress").then((function () {return resolve(__webpack_require__(/*! @/components/CardAddress.vue */ 145));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CardOrder = function CardOrder() {__webpack_require__.e(/*! require.ensure | components/CardOrder */ "components/CardOrder").then((function () {return resolve(__webpack_require__(/*! @/components/CardOrder.vue */ 138));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var GoodsSubmit = function GoodsSubmit() {__webpack_require__.e(/*! require.ensure | components/GoodsSubmit */ "components/GoodsSubmit").then((function () {return resolve(__webpack_require__(/*! @/components/GoodsSubmit.vue */ 84));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var PriceFormat = function PriceFormat() {__webpack_require__.e(/*! require.ensure | components/PriceFormat */ "components/PriceFormat").then((function () {return resolve(__webpack_require__(/*! @/components/PriceFormat.vue */ 131));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {
@@ -178,7 +182,11 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
     PriceFormat: PriceFormat },
 
   data: function data() {
-    return { goodsList: [] };
+    return {
+      goodsList: [],
+      price: 0,
+      count: 0 };
+
   },
   computed: _objectSpread(_objectSpread({},
   (0, _vuex.mapState)({
@@ -193,6 +201,11 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
         title: '无提交订单逻辑',
         icon: 'none' });
 
+    },
+    toDetail: function toDetail() {
+      uni.navigateTo({
+        url: '../unused/detail' });
+
     } },
 
   onLoad: function onLoad(option) {
@@ -201,9 +214,13 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
       // 从购物车获取列表数据
       case 'cart':
         list = this.cartList.filter(function (item) {return item.isCheck;});
+        this.price = this.totalPrice;
+        this.count = this.totalCount;
         break;
       case 'order':
         list = this.myOrder.filter(function (item) {return item._id = option.id;});
+        this.price = list[0].price;
+        this.count = list[0].count;
         break;
       default:
         break;}

@@ -3293,12 +3293,14 @@ unused;exports.default = _default;
 Object.defineProperty(exports, "__esModule", { value: true });exports.myOrder = exports.recommendList = exports.cartList = exports.unusedList = void 0;var unusedList = [
 {
   _id: 'unu001',
-  nickname: '派大星',
-  avatar: '/static/avatar/017.jpg',
+  seller: '派大星',
+  seller_avatar: '/static/avatar/017.jpg',
+  seller_id: '001',
   title: '星巴克环保杯',
   content: '这是在星巴克最新发行的环保杯，通体白斩，还有好看的小图案点缀，创意满满。',
   imgs: ['/static/avatar/002.jpg', '/static/avatar/003.jpg'],
-  tradeMethod: '自提',
+  trade_method: '自提',
+  service: '7天无理由退款',
   price: 108,
   time: '刚刚',
   reading: 10086,
@@ -3307,52 +3309,98 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.myOrder = 
 
 {
   _id: 'unu007',
-  nickname: '傻大星',
-  avatar: '/static/avatar/018.jpg',
-  title: '神仙水300ml',
+  seller: '阿迪',
+  seller_avatar: '/static/avatar/018.jpg',
+  seller_id: '002',
+  title: '神仙水',
   content: 'SK-II神仙水精华液 面部护肤品精华补水舒缓修护平衡水油skllsk2',
   imgs: ['/static/avatar/005.jpg'],
-  tradeMethod: '派送',
+  trade_method: '上门派送',
+  service: '7天无理由退款',
   price: 1024,
   time: '1小时前',
   reading: 404,
   collect: 200,
-  sort: 'hzp' }];exports.unusedList = unusedList;
+  sort: 'hzp' },
+
+{
+  _id: 'unu009',
+  seller: '阿迪',
+  seller_avatar: '/static/avatar/017.jpg',
+  seller_id: '002',
+  title: '一只海绵',
+  content: '海绵BOO宝公仔毛绒玩具抱枕玩偶压床布娃娃',
+  imgs: ['/static/avatar/001.jpg'],
+  trade_method: '中通快递',
+  service: '7天无理由退款',
+  price: 59,
+  time: '2小时前',
+  reading: 404,
+  collect: 200,
+  sort: 'wp' },
+
+{
+  _id: 'unu010',
+  seller: '哈迪斯',
+  seller_avatar: '/static/avatar/017.jpg',
+  seller_id: '003',
+  title: '珊迪·奇克斯',
+  content: '它是来自美国南部的德克萨斯州的雌性松鼠，身兼科学家、探险家和发明家',
+  imgs: ['/static/avatar/004.jpg'],
+  trade_method: '中通快递',
+  service: '7天无理由退款',
+  price: 99,
+  time: '1天前',
+  reading: 404,
+  collect: 200,
+  sort: 'wp' },
+
+{
+  _id: 'unu012',
+  seller: '哈迪斯',
+  seller_avatar: '/static/avatar/017.jpg',
+  seller_id: '003',
+  title: '标题',
+  content: '这是内容内容内容内容内容内容内容内容',
+  imgs: ['/static/avatar/004.jpg', '/static/avatar/005.jpg'],
+  trade_method: '中通快递',
+  service: '7天无理由退款',
+  price: 199,
+  time: '2天前',
+  reading: 500,
+  collect: 404,
+  sort: 'wp' }];exports.unusedList = unusedList;
 
 
 
 var cartList = [
 {
   _id: 'cart009',
-  user_id: 'daimao007',
-  seller_id: 'shandi110',
+  seller: '阿迪',
   seller_avatar: '/static/avatar/017.jpg',
-  seller_nickname: '在逃南瓜车',
-  title: '一只海绵宝宝',
+  title: '一只海绵',
   content: '海绵BOO宝公仔毛绒玩具抱枕玩偶压床布娃娃',
   img: '/static/avatar/001.jpg',
+  trade_method: '中通快递',
+  service: '7天无理由退款',
   price: 59,
   count: 1,
-  unused_id: 'unu555',
-  isCheck: true,
-  tradeMethod: '自提',
-  service: '7天无理由退款' },
+  unused_id: 'unu009', // 闲置物品id
+  isCheck: true },
 
 {
   _id: 'cart010',
-  user_id: 'daimao007',
-  seller_id: 'shandi110',
-  seller_avatar: '/static/avatar/018.jpg',
-  seller_nickname: '哈迪斯',
+  seller: '哈迪斯',
+  seller_avatar: '/static/avatar/017.jpg',
   title: '珊迪·奇克斯',
   content: '珊迪·奇克斯是来自美国南部的德克萨斯州的雌性松鼠，身兼科学家、探险家和发明家',
   img: '/static/avatar/004.jpg',
+  trade_method: '中通快递',
+  service: '7天无理由退款',
   price: 99,
   count: 2,
-  unused_id: 'unu333',
-  isCheck: true,
-  tradeMethod: '中通快递',
-  service: '7天无理由退款' }];exports.cartList = cartList;
+  unused_id: 'unu010',
+  isCheck: true }];exports.cartList = cartList;
 
 
 
@@ -3381,9 +3429,9 @@ var myOrder = [
 {
   _id: 'order943',
   user_id: 'daimao007',
-  seller_id: 'shandi110',
+  seller: '派大星',
+  seller_id: '002',
   seller_avatar: '/static/avatar/018.jpg',
-  seller_nickname: '派大星',
   title: '标题',
   content: '这是内容内容内容内容内容内容内容内容',
   img: '/static/avatar/004.jpg',
@@ -3393,14 +3441,14 @@ var myOrder = [
   // reading: 500,
   tradeMethod: '中通快递',
   service: '7天无理由退款',
-  unused_id: 'unu073',
+  unused_id: 'unu012',
   // 1 待付款，2 待发货，3 待收货，4 已收货
   state_code: 1,
   state_desc: '代付款' }];exports.myOrder = myOrder;
 
 /***/ }),
 
-/***/ 151:
+/***/ 157:
 /*!***************************************************************!*\
   !*** D:/git-store/uni-app-item/components/uni-icons/icons.js ***!
   \***************************************************************/

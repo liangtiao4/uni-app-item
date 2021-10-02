@@ -4,14 +4,18 @@
 		<view class="mb-2">
 			<card-address/>
 		</view>
-		<card-order v-for="item in goodsList" :key="item._id" :o="item">
+		<card-order
+			v-for="item in goodsList"
+			:key="item._id"
+			:data="item"
+		>
 			<view class="card-cell">
 				<text class="cc-left">服务</text>
 				<text class="cc-right">{{item.service}}</text>
 			</view>
 			<view class="card-cell">
 				<text class="cc-left">配送方式</text>
-				<text class="cc-right">{{item.tradeMethod}}</text>
+				<text class="cc-right">{{item.trade_method}}</text>
 			</view>
 			<view class="card-price">
 				<text class="cp-left">共{{item.count}}件，</text>
@@ -24,8 +28,8 @@
 	</view>
 	<goods-submit
 		btnText='提交订单'
-		:price="totalPrice"
-		:count="totalCount"
+		:price="price"
+		:count="count"
 		:submit="handlePay"
 	/>
 </view>
@@ -46,7 +50,11 @@ export default {
 		PriceFormat
 	},
 	data () {
-		return { goodsList: [] }
+		return {
+			goodsList: [],
+			price: 0,
+			count: 0
+		}
 	},
 	computed: {
 		...mapState({
@@ -61,6 +69,11 @@ export default {
 				title: '无提交订单逻辑',
 				icon: 'none'
 			})
+		},
+		toDetail () {
+			uni.navigateTo({
+				url: '../unused/detail'
+			})
 		}
 	},
 	onLoad (option) {
@@ -69,9 +82,13 @@ export default {
 			// 从购物车获取列表数据
 			case 'cart':
 				list = this.cartList.filter(item => item.isCheck)
+				this.price = this.totalPrice
+				this.count = this.totalCount
 				break;
 			case 'order':
 				list = this.myOrder.filter(item => item._id = option.id)
+				this.price = list[0].price
+				this.count = list[0].count
 				break;
 			default:
 				break;

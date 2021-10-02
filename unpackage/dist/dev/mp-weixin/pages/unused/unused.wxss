@@ -276,10 +276,15 @@
   height: 50rpx;
 }
 .detail .nd-tab {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: #fff;
   padding-top: 24rpx;
+  border-bottom: 1rpx solid #edecf0;
 }
 .detail .used-item {
-  padding: 30rpx;
+  padding: 100rpx 30rpx 24rpx;
 }
 

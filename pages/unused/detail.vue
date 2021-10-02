@@ -2,17 +2,17 @@
 <view class="unused-detail">
 	<view class="seller wrap-p column-center">
 		<image
-			:src="unused.avatar"
+			:src="unused.seller_avatar"
 			class="img-avatar ia-sm mr-1" />
-		<text>{{unused.nickname}}</text>
+		<text>{{unused.seller}}</text>
 	</view>
 	<view class="unused-desc wrap-p">
 		<view class="fs-3 mb-2">{{unused.title}}</view>
 		<view class="mb-1">{{unused.content}}</view>
-		<view class="mb-1">交易方式：{{unused.tradeMethod}}</view>
+		<view class="mb-1">交易方式：{{unused.trade_method}}</view>
 		<view class="showimg">
-			<view class="mb-1 flex-row">
-				<text>实物展示:</text>
+			<view class="mb-1 row-between">
+				<text>实物展示：</text>
 				<price-format :price="unused.price" />
 			</view>
 			<image
@@ -43,6 +43,7 @@ export default {
 		...mapMutations(['getUnusedById'])
 	},
 	onLoad (options) {
+		console.log('goods detail', options.id)
 		this.getUnusedById(options.id)
 	}
 }

@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/my/orderState",
+    "pages/index/index",
     "pages/cart/cart",
     "pages/my/my",
     "pages/unused/unused",
     "pages/unused/detail",
-    "pages/index/index",
-    "pages/cart/payment"
+    "pages/my/orderState",
+    "pages/cart/payment",
+    "pages/unused/release"
   ],
   "subPackages": [],
   "window": {
@@ -39,5 +40,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }
